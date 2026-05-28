@@ -7,7 +7,7 @@ HTML, CSS, JavaScript와 AI를 활용해 제작한 개인 소개 웹사이트입
 - GitHub Pages 저장소: `gugukorn/gugukorn.github.io`
 - 배포 주소: <https://gugukorn.github.io/>
 
-## 과제 조건 반영
+## 조건
 
 - 개인 소개 웹사이트 제작
 - HTML, CSS, JavaScript 사용
