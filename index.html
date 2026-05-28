@@ -1,60 +1,163 @@
 <!DOCTYPE html>
-<html lang = "ko">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Lee Jae Woo</title>
-    <script src="https://kit.fontawesome.com/a9a68f8b3f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이재우의 개인 소개 웹사이트입니다. HTML, CSS, JavaScript와 AI를 활용해 제작했습니다.">
+  <title>이재우 | Personal Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header id="header">
-        <!-- 이력서 헤더 : 이름과 타이틀 작성 -->
-        <h1>이재우</h1>
-        <hr>IT 개발자<hr>
-    </header>
-      <main>
-        <article id="mainLeft">
-          <section>
-            <h2>CONTACT</h2>
-            <p>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:ljw5953@gmail.com">ljw5953@gmail.com</a>
-            </p>
-            <p>
-                <i class="fa fa-github" aria-hidden="true"></i>
-                <a href="https://www.github.com/gugukorn">Github</a>
-            </p>
-        </section>
-          <section>
-            <h2>SKILLS</h2>
-            <p>HTML, CSS, Javascript(ES6), Vue.js, VS Code, Git/GitHub </p>
-           </section>
-           <section>
-            <h2>EDUCATION</h2>
-            <p>울산대학교 - IT융합전공 (2018-2024)</p>
-            <p>금곡고등학교 (2015-2018)</p>  
-          </section>            
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="홈으로 이동">Lee Jae Woo</a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#experience">경험</a></li>
+        <li><a href="#ai-prompt">AI 활용</a></li>
+        <li><a href="#contact">연락</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="테마 변경" title="테마 변경">◐</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-label="개인 소개">
+      <img class="hero-image" src="assets/hero-workspace.png" alt="개발자 책상과 노트북이 있는 작업 공간">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Personal Profile Website</p>
+        <h1>안녕하세요, 개발자 이재우입니다.</h1>
+        <p class="hero-copy">
+          웹 기술과 업무 시스템 개발을 배우고 적용하며, 작은 개선을 꾸준히 쌓아 문제를 해결하는 개발자를 목표로 하고 있습니다.
+        </p>
+        <div class="hero-actions" aria-label="주요 링크">
+          <a class="button primary" href="mailto:ljw5953@gmail.com">메일 보내기</a>
+          <a class="button secondary" href="https://github.com/gugukorn" target="_blank" rel="noreferrer">GitHub 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-grid" id="about">
+      <div>
+        <p class="section-kicker">About</p>
+        <h2>배운 것을 실제 화면과 업무 흐름으로 연결합니다.</h2>
+      </div>
+      <div class="intro-text">
+        <p>
+          HTML, CSS, JavaScript를 기반으로 웹 화면을 만들고, Vue.js와 Git/GitHub를 활용해 협업과 버전 관리를 익혀왔습니다.
+          최근에는 SAP FI 개발 및 유지보수, e-Accounting 고도화 같은 업무 시스템 경험을 통해 사용자의 실제 흐름을 이해하는 데 관심을 두고 있습니다.
+        </p>
+        <p>
+          새로운 기술을 빠르게 시도하는 것도 좋아하지만, 결과물을 끝까지 다듬고 설명할 수 있는 개발자가 되는 것을 더 중요하게 생각합니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <p class="section-kicker">Skills</p>
+        <h2>사용 기술</h2>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript(ES6), Vue.js</p>
         </article>
-        <article id="mainRight">
-          <section>
-           <h2>ABOUT</h2>
-           <p>호기심 많고 무엇인가에 몰두하는 것을 좋아하며, 새로운 기술을 익히는 것을 주저하지 않는 도전자.</p>
-          </section>
-          <section>
-            <h2>WORK EXPERIENCE</h2>
-            <p>성우하이텍 ( 2024.09 ~ ) </p>
-            <ul>
-                <li>SAP FI 신규 개발 및 유지보수</li>
-                <li>e-Accounting 고도화</li>
-            </ul>
-            <p>HNIX(舊 현대BS&C) ( 2023.08 ~ 2023.12 )
-            <ul>
-                <li>M/W 솔루션 활용한 기기 제어 챗봇 개발</li>
-            </ul>
-          </section>
+        <article class="skill-card">
+          <h3>Tools</h3>
+          <p>VS Code, Git, GitHub, GitHub Pages</p>
         </article>
-      </main>
+        <article class="skill-card">
+          <h3>Business System</h3>
+          <p>SAP FI 개발, e-Accounting 고도화, 유지보수</p>
+        </article>
+        <article class="skill-card">
+          <h3>Working Style</h3>
+          <p>문제 분석, 문서화, 꾸준한 개선, 커뮤니케이션</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="experience">
+      <div class="section-heading">
+        <p class="section-kicker">Experience</p>
+        <h2>경험과 학습</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <time datetime="2024-09">2024.09 - 현재</time>
+          <div>
+            <h3>SAP FI 개발 및 업무 시스템 유지보수</h3>
+            <p>SAP FI 신규 개발, 유지보수, e-Accounting 고도화 업무를 경험하며 안정적인 업무 흐름을 만드는 방법을 배우고 있습니다.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time datetime="2023-08">2023.08 - 2023.12</time>
+          <div>
+            <h3>M/W 업무용 기기 제어 챗봇 개발</h3>
+            <p>업무용 기기 제어를 위한 챗봇 개발 경험을 통해 사용자 요청을 기능으로 연결하는 과정을 익혔습니다.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <time datetime="2018">2018 - 2024</time>
+          <div>
+            <h3>IT 융합 전공</h3>
+            <p>프로그래밍 기초와 웹 개발, 데이터 처리 등 IT 분야의 기본기를 쌓았습니다.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section prompt-section" id="ai-prompt">
+      <div class="section-heading">
+        <p class="section-kicker">AI Usage</p>
+        <h2>AI를 사용한 제작 프롬프트</h2>
+      </div>
+      <div class="prompt-grid">
+        <article class="prompt-card">
+          <h3>웹사이트 제작 프롬프트</h3>
+          <p>
+            "HTML, CSS, JavaScript만 사용해서 개인 소개 웹사이트를 만들어줘. 이름은 이재우이고, 이메일과 GitHub 링크,
+            기술 스택, 교육, 업무 경험, AI 사용 프롬프트를 한 페이지에 정리해줘. 반응형 디자인, 모바일 메뉴, 다크 모드,
+            부드러운 스크롤을 포함하고 GitHub Pages에서 바로 배포할 수 있게 구성해줘."
+          </p>
+        </article>
+        <article class="prompt-card">
+          <h3>이미지 생성 프롬프트</h3>
+          <p>
+            "Create a polished landscape hero image for a Korean junior web/developer personal website. Show a modern desk setup
+            with a laptop, soft daylight, clean workspace, balanced teal, charcoal, white, and yellow accents. No readable text,
+            no logos, no watermark."
+          </p>
+        </article>
+      </div>
+      <p class="prompt-note">
+        이 페이지는 기존 GitHub Pages 저장소의 깨진 텍스트를 정리하고, AI 도움을 받아 구조와 디자인을 새로 구성한 정적 웹사이트입니다.
+      </p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div>
+        <p class="section-kicker">Contact</p>
+        <h2>함께 성장하는 개발자가 되겠습니다.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:ljw5953@gmail.com">ljw5953@gmail.com</a>
+        <a href="https://github.com/gugukorn" target="_blank" rel="noreferrer">github.com/gugukorn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Lee Jae Woo. Built with HTML, CSS, JavaScript, and AI.</p>
+  </footer>
 </body>
 </html>
