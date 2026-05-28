@@ -1,163 +1,1083 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="이재우의 개인 소개 웹사이트입니다. HTML, CSS, JavaScript와 AI를 활용해 제작했습니다.">
-  <title>이재우 | Personal Profile</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>이재우 | Portfolio</title>
+<style>
+@import "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
+
+/* ══════════════════════════════════════
+   RESET & ROOT
+══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --nf-red:#00D2A8;          /* 현대퓨처넷 에메랄드 */
+  --nf-red-hover:#00997A;    /* hover */
+  --bg:#071412;              /* 딥 다크 그린 */
+  --bg-card:#0D1E1B;         /* 카드 배경 */
+  --bg-modal:#102522;        /* 모달 배경 */
+  --text:#ffffff;
+  --text-muted:#9CCBC2;
+  --text-dim:#5F8F86;
+  --border:#1F4D46;
+  --ff:'Pretendard Variable',Pretendard,sans-serif;
+  --nav-h:68px;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--ff);overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;font-family:var(--ff)}
+img{display:block;max-width:100%}
+
+/* ══════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#444;border-radius:3px}
+
+/* ══════════════════════════════════════
+   NAVBAR — 넷플릭스 상단바
+══════════════════════════════════════ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4%;
+  background:linear-gradient(to bottom,rgba(0,0,0,.85) 0%,transparent 100%);
+  transition:background .4s;
+}
+.navbar.solid{background:rgba(20,20,20,.97)}
+.nav-logo{
+  font-size:1.7rem;font-weight:900;color:var(--nf-red);
+  letter-spacing:-.02em;margin-right:2.5rem;flex-shrink:0;
+  font-style:italic;
+}
+.nav-links{display:flex;gap:1.25rem;align-items:center}
+.nav-links a{
+  font-size:.82rem;color:rgba(255,255,255,.75);
+  transition:color .2s;font-weight:500;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-right{display:flex;align-items:center;gap:1.25rem}
+.nav-search{
+  background:none;border:none;color:#fff;
+  font-size:1.1rem;padding:.35rem;opacity:.8;
+  transition:opacity .2s;
+}
+.nav-search:hover{opacity:1}
+.nav-avatar{
+  width:34px;height:34px;border-radius:5px;
+  background:linear-gradient(135deg,var(--nf-red),#8B0000);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:900;cursor:pointer;
+  flex-shrink:0;
+}
+
+/* ══════════════════════════════════════
+   HERO BILLBOARD
+══════════════════════════════════════ */
+.billboard{
+  position:relative;
+  height:100vh;min-height:600px;
+  display:flex;align-items:flex-end;
+  padding:0 4% 12%;
+  overflow:hidden;
+}
+
+/* 배경 — 그라디언트 신원 카드 */
+.billboard-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to right,rgba(20,20,20,.9) 30%,transparent 70%),
+    linear-gradient(to top,rgba(20,20,20,1) 0%,rgba(20,20,20,.5) 30%,transparent 60%),
+    linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 40%,#16213e 70%,#0f3460 100%);
+  z-index:0;
+}
+/* 배경 장식 — 코드 패턴 */
+.billboard-code{
+  position:absolute;right:5%;top:50%;transform:translateY(-50%);
+  font-family:'Courier New',monospace;font-size:.75rem;
+  color:rgba(229,9,20,.12);line-height:1.8;
+  pointer-events:none;z-index:0;white-space:pre;
+  animation:codeFloat 6s ease-in-out infinite alternate;
+}
+@keyframes codeFloat{
+  from{transform:translateY(-50%) translateX(0)}
+  to{transform:translateY(-53%) translateX(-8px)}
+}
+
+.billboard-top-badge{
+  position:absolute;top:8rem;left:4%;z-index:1;
+  display:flex;align-items:center;gap:.5rem;
+}
+.nf-top10{
+  background:var(--nf-red);color:#fff;
+  font-size:.65rem;font-weight:900;padding:.2rem .5rem;
+  border-radius:3px;letter-spacing:.08em;
+}
+.nf-rank-text{font-size:.82rem;font-weight:600;color:#fff}
+
+.billboard-content{position:relative;z-index:1;max-width:520px}
+
+.billboard-genre{
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--nf-red);
+  margin-bottom:.75rem;
+}
+.billboard-name{
+  font-size:clamp(3.5rem,8vw,6.5rem);
+  font-weight:900;line-height:.9;
+  letter-spacing:-.04em;margin-bottom:.5rem;
+  text-shadow:2px 4px 20px rgba(0,0,0,.8);
+}
+.billboard-name span{color:var(--nf-red)}
+.billboard-subtitle{
+  font-size:1.1rem;color:rgba(255,255,255,.75);
+  margin-bottom:1.25rem;font-weight:400;
+}
+.billboard-meta{
+  display:flex;align-items:center;gap:.75rem;
+  margin-bottom:1.5rem;flex-wrap:wrap;
+}
+.match-score{color:#46d369;font-weight:700;font-size:.9rem}
+.badge-year,.badge-rating,.badge-duration{
+  font-size:.78rem;color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.4);
+  padding:.1rem .45rem;border-radius:2px;
+}
+.badge-rating{border-color:rgba(255,255,255,.6);color:#fff}
+.billboard-desc{
+  font-size:.92rem;color:rgba(255,255,255,.75);
+  line-height:1.7;margin-bottom:2rem;
+  display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.billboard-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+
+.btn-play{
+  display:flex;align-items:center;gap:.55rem;
+  background:#fff;color:#000;
+  padding:.7rem 1.75rem;border-radius:4px;
+  font-size:.95rem;font-weight:700;border:none;
+  transition:background .2s;
+}
+.btn-play:hover{background:rgba(255,255,255,.8)}
+.btn-play .ico{font-size:1.1rem}
+
+.btn-info{
+  display:flex;align-items:center;gap:.55rem;
+  background:rgba(109,109,110,.7);color:#fff;
+  padding:.7rem 1.6rem;border-radius:4px;
+  font-size:.95rem;font-weight:600;border:none;
+  backdrop-filter:blur(4px);
+  transition:background .2s;
+}
+.btn-info:hover{background:rgba(109,109,110,.5)}
+
+/* ══════════════════════════════════════
+   SECTION ROW — 넷플릭스 콘텐츠 행
+══════════════════════════════════════ */
+.section-row{
+  padding:0 4%;margin-bottom:3.5rem;
+  position:relative;
+}
+.row-title{
+  font-size:1.1rem;font-weight:700;
+  margin-bottom:1rem;color:#e5e5e5;
+  display:flex;align-items:center;gap:.75rem;
+}
+.row-title .explore{
+  font-size:.78rem;color:#54b9c5;font-weight:600;
+  opacity:0;transition:opacity .25s;cursor:pointer;
+}
+.section-row:hover .explore{opacity:1}
+.row-title .explore:hover{text-decoration:underline}
+
+/* 카드 슬라이더 */
+.card-slider{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:.35rem;
+  overflow:visible;
+}
+#projects .card-slider{padding-bottom:8rem}
+#projects .section-row{margin-bottom:1rem}
+
+/* ══════════════════════════════════════
+   PROJECT CARD
+══════════════════════════════════════ */
+.project-card{
+  position:relative;border-radius:4px;
+  overflow:visible;cursor:pointer;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),z-index 0s .35s;
+}
+.project-card:hover{
+  transform:translateY(-6px) scale(1.08);z-index:50;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),z-index 0s;
+}
+/* 양 끝 카드 overflow fix */
+.card-slider .project-card:first-child:hover{transform:translateY(-6px) scale(1.08) translateX(3%);}
+.card-slider .project-card:last-child:hover{transform:translateY(-6px) scale(1.08) translateX(-3%);}
+
+.card-thumb{
+  width:100%;aspect-ratio:16/9;border-radius:4px;
+  position:relative;overflow:hidden;
+  background:var(--bg-card);
+}
+.card-thumb-inner{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  position:relative;
+  transition:filter .35s;
+}
+.project-card:hover .card-thumb-inner{filter:brightness(.5)}
+.card-label{
+  position:absolute;bottom:.5rem;left:.6rem;
+  font-size:.78rem;font-weight:800;letter-spacing:.04em;
+  text-shadow:0 2px 6px rgba(0,0,0,.9);
+}
+.card-badge{
+  position:absolute;top:.5rem;left:.5rem;
+  background:var(--nf-red);color:#fff;
+  font-size:.6rem;font-weight:900;padding:.15rem .4rem;
+  border-radius:2px;letter-spacing:.08em;
+}
+
+/* 카드 아이콘 (SVG 대신 이모지 아트) */
+.thumb-art{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:3rem;
+  background-size:cover;background-position:center;
+}
+
+/* hover 패널 */
+.card-hover-panel{
+  position:absolute;top:100%;left:0;right:0;
+  background:var(--bg-modal);
+  border-radius:0 0 6px 6px;
+  padding:1rem;z-index:50;
+  opacity:0;pointer-events:none;
+  transition:opacity .2s .15s;
+  box-shadow:0 8px 24px rgba(0,0,0,.8);
+  border:1px solid var(--border);border-top:none;
+}
+.project-card:hover .card-hover-panel{opacity:1;pointer-events:auto}
+
+.panel-actions{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
+.panel-btn{
+  width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);
+  background:transparent;color:#fff;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s,background .2s;
+}
+.panel-btn:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.panel-btn.play{
+  background:#fff;color:#000;border-color:#fff;font-size:1rem;
+}
+.panel-btn.play:hover{background:rgba(255,255,255,.85)}
+.panel-btn-add{margin-right:auto}
+.panel-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+.ptag{
+  font-size:.65rem;font-weight:700;
+  color:rgba(255,255,255,.6);letter-spacing:.04em;
+}
+.ptag::after{content:'·';margin-left:.4rem;color:rgba(255,255,255,.3)}
+.ptag:last-child::after{display:none}
+.panel-title{font-size:.88rem;font-weight:700;margin-bottom:.25rem}
+.panel-desc{font-size:.75rem;color:var(--text-muted);line-height:1.55}
+
+/* ══════════════════════════════════════
+   SKILL ROW — 넷플릭스 장르 버튼 형식
+══════════════════════════════════════ */
+.skill-pills{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  padding:0 4%;margin-bottom:4rem;
+}
+.skill-pill{
+  padding:.45rem 1.1rem;
+  border-radius:3px;
+  font-size:.8rem;font-weight:600;
+  border:1.5px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.8);
+  background:transparent;
+  transition:border-color .2s,color .2s,background .2s;
+  cursor:default;
+}
+.skill-pill:hover{
+  border-color:rgba(255,255,255,.7);
+  color:#fff;background:rgba(255,255,255,.08);
+}
+.skill-pill.hot{
+  border-color:var(--nf-red);color:var(--nf-red);
+}
+.skill-pill.hot:hover{background:rgba(229,9,20,.1)}
+
+/* ══════════════════════════════════════
+   EXPERIENCE TIMELINE ROW
+══════════════════════════════════════ */
+.exp-cards{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:.35rem;padding:0 4%;margin-bottom:4rem;
+}
+.exp-card{
+  background:var(--bg-card);border-radius:4px;
+  padding:1.75rem 1.5rem;border:1px solid var(--border);
+  transition:border-color .25s,transform .25s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.exp-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--nf-red);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.exp-card:hover::before{transform:scaleX(1)}
+.exp-card:hover{border-color:#555;transform:translateY(-3px)}
+.exp-period{
+  font-size:.68rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nf-red);margin-bottom:.6rem;
+}
+.exp-role{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+.exp-org{
+  display:inline-flex;align-items:center;gap:.4rem;
+  width:max-content;max-width:100%;
+  font-size:.82rem;color:#071412;font-weight:900;
+  background:var(--nf-red);padding:.28rem .65rem;border-radius:3px;
+  margin-bottom:.75rem;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
+}
+.exp-company-note{
+  font-size:.78rem;color:rgba(255,255,255,.78);line-height:1.6;
+  margin-bottom:.9rem;padding:.65rem .75rem;
+  background:rgba(255,255,255,.045);border-left:3px solid var(--nf-red);
+  border-radius:3px;
+}
+.exp-bullets{display:flex;flex-direction:column;gap:.35rem}
+.exp-bullets li{
+  font-size:.8rem;color:var(--text-muted);line-height:1.6;
+  padding-left:.9rem;position:relative;
+}
+.exp-bullets li::before{
+  content:'▸';position:absolute;left:0;
+  color:var(--nf-red);font-size:.65rem;top:.1rem;
+}
+
+/* ══════════════════════════════════════
+   AWARDS ROW
+══════════════════════════════════════ */
+.award-row{
+  display:flex;align-items:center;gap:1.25rem;
+  padding:1rem 1.5rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:background .2s;cursor:default;
+}
+.award-row:hover{background:rgba(255,255,255,.04)}
+.award-num{
+  font-size:2.5rem;font-weight:900;color:rgba(255,255,255,.08);
+  min-width:3rem;text-align:center;line-height:1;
+}
+.award-thumb{
+  width:60px;height:60px;border-radius:4px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+}
+.award-info{flex:1}
+.award-title{font-size:.9rem;font-weight:700;margin-bottom:.25rem}
+.award-org{font-size:.78rem;color:var(--text-muted)}
+.award-org a{
+  color:var(--nf-red);
+  font-weight:800;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
+.award-org a:hover{color:#fff}
+.award-link::after{
+  content:'↗';
+  display:inline-block;
+  margin-left:.25rem;
+  font-size:.72rem;
+  transform:translateY(-1px);
+}
+.award-date{font-size:.72rem;color:var(--text-dim)}
+.award-badge{
+  background:var(--nf-red);color:#fff;
+  font-size:.65rem;font-weight:900;
+  padding:.2rem .55rem;border-radius:2px;
+  letter-spacing:.06em;flex-shrink:0;
+}
+
+/* ══════════════════════════════════════
+   CONTACT — 하단 섹션
+══════════════════════════════════════ */
+.contact-section{
+  padding:5rem 4%;
+  background:linear-gradient(to top,rgba(0,0,0,.8),transparent),
+             var(--bg-card);
+  border-top:1px solid var(--border);
+}
+.contact-label{
+  font-size:.72rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nf-red);margin-bottom:1rem;
+}
+.contact-headline{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  margin-bottom:1rem;line-height:1.1;
+}
+.contact-desc{
+  font-size:.95rem;color:var(--text-muted);
+  margin-bottom:2rem;max-width:480px;line-height:1.7;
+}
+.contact-links{
+  display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:3rem;
+}
+.contact-link{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.65rem 1.25rem;
+  background:rgba(255,255,255,.07);border:1px solid var(--border);
+  border-radius:4px;font-size:.82rem;font-weight:600;
+  color:rgba(255,255,255,.8);
+  transition:background .2s,border-color .2s,color .2s;
+}
+.contact-link:hover{
+  background:rgba(229,9,20,.15);
+  border-color:var(--nf-red);color:#fff;
+}
+.contact-link .ico{font-size:1rem}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--nf-red);color:#fff;
+  padding:.8rem 2rem;border-radius:4px;
+  font-size:.92rem;font-weight:700;border:none;
+  transition:background .2s,transform .15s;
+}
+.contact-btn:hover{background:var(--nf-red-hover);transform:scale(1.02)}
+
+/* ══════════════════════════════════════
+   MODAL — 넷플릭스 상세 팝업
+══════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.75);
+  z-index:9000;display:flex;align-items:center;justify-content:center;
+  padding:2rem;opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+
+.modal{
+  background:var(--bg-modal);border-radius:8px;
+  width:100%;max-width:850px;max-height:90vh;
+  overflow-y:auto;position:relative;
+  transform:scale(.9);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 20px 60px rgba(0,0,0,.9);
+}
+.modal-overlay.open .modal{transform:scale(1)}
+
+.modal-hero{
+  position:relative;width:100%;aspect-ratio:16/7;
+  overflow:hidden;border-radius:8px 8px 0 0;
+  display:flex;align-items:flex-end;
+}
+.modal-hero-bg{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:6rem;
+}
+.modal-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,var(--bg-modal) 0%,transparent 60%),
+             linear-gradient(to right,rgba(0,0,0,.4),transparent);
+}
+.modal-hero-content{position:relative;z-index:1;padding:2rem 2.5rem 1.5rem}
+.modal-title{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  letter-spacing:-.03em;margin-bottom:.5rem;
+  text-shadow:0 2px 10px rgba(0,0,0,.8);
+}
+.modal-actions{display:flex;gap:.65rem;flex-wrap:wrap}
+.modal-close{
+  position:absolute;top:1rem;right:1rem;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(20,20,20,.85);border:1.5px solid rgba(255,255,255,.4);
+  color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s;
+}
+.modal-close:hover{border-color:#fff}
+
+.modal-body{padding:1.75rem 2.5rem 2.5rem}
+.modal-meta-row{
+  display:flex;align-items:center;gap:.75rem;
+  margin-bottom:1.25rem;flex-wrap:wrap;
+}
+.m-match{color:#46d369;font-weight:700}
+.m-year,.m-hd{
+  font-size:.8rem;color:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.35);
+  padding:.1rem .4rem;border-radius:2px;
+}
+.modal-grid{display:grid;grid-template-columns:1fr auto;gap:2rem}
+.modal-desc{font-size:.92rem;color:rgba(255,255,255,.75);line-height:1.75}
+.modal-tags-section{}
+.modal-tag-row{font-size:.82rem;margin-bottom:.5rem}
+.modal-tag-row span:first-child{color:var(--text-dim)}
+.modal-tag-row span+span{color:rgba(255,255,255,.8)}
+
+.modal-more{margin-top:2.5rem}
+.modal-more-title{
+  font-size:1.1rem;font-weight:700;
+  margin-bottom:1rem;padding-bottom:.75rem;
+  border-bottom:1px solid var(--border);
+}
+.modal-more-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;
+}
+.modal-more-card{
+  background:var(--bg-card);border-radius:4px;overflow:hidden;cursor:pointer;
+  transition:transform .2s;border:1px solid var(--border);
+}
+.modal-more-card:hover{transform:scale(1.03)}
+.modal-more-thumb{
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+  font-size:2rem;background:rgba(255,255,255,.04);
+}
+.modal-more-info{padding:.6rem .75rem}
+.modal-more-info p{font-size:.78rem;font-weight:600}
+.modal-more-info span{font-size:.7rem;color:var(--text-muted)}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  padding:3rem 4% 4rem;
+  border-top:1px solid var(--border);
+}
+.footer-logo{
+  font-size:1.2rem;font-weight:900;color:var(--nf-red);
+  font-style:italic;margin-bottom:1.5rem;
+}
+.footer-links{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin-bottom:1.5rem}
+.footer-links a{font-size:.78rem;color:var(--text-muted);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.75rem;color:var(--text-dim)}
+
+/* ══════════════════════════════════════
+   DIVIDER — "TOP 10" 스타일 구분
+══════════════════════════════════════ */
+.top10-divider{
+  display:flex;align-items:center;gap:.75rem;
+  padding:0 4%;margin-bottom:1rem;
+}
+.top10-box{
+  background:var(--nf-red);color:#fff;
+  font-size:.6rem;font-weight:900;padding:.2rem .45rem;border-radius:2px;
+  letter-spacing:.08em;
+}
+.top10-text{font-size:.82rem;font-weight:600}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:768px){
+  .navbar{padding:0 3%}
+  .nav-links{display:none}
+  .billboard{padding:0 3% 18%}
+  .billboard-code{display:none}
+  .section-row,.skill-pills,.exp-cards,.contact-section{padding-left:3%;padding-right:3%}
+  .card-slider{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  #projects .card-slider{padding-bottom:7rem}
+  .project-card:hover{transform:translateY(-4px) scale(1.04)}
+  .modal-grid{grid-template-columns:1fr}
+  .modal-more-grid{grid-template-columns:repeat(2,1fr)}
+  .modal{border-radius:4px}
+  .modal-body{padding:1.25rem 1.5rem 2rem}
+  .modal-hero-content{padding:1.25rem 1.5rem 1rem}
+}
+
+/* ══════════════════════════════════════
+   FADE-IN ANIMATION
+══════════════════════════════════════ */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#home" aria-label="홈으로 이동">Lee Jae Woo</a>
-    <nav class="nav" aria-label="주요 메뉴">
-      <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-list">
-        <li><a href="#about">소개</a></li>
-        <li><a href="#skills">기술</a></li>
-        <li><a href="#experience">경험</a></li>
-        <li><a href="#ai-prompt">AI 활용</a></li>
-        <li><a href="#contact">연락</a></li>
-      </ul>
-    </nav>
-    <button class="theme-toggle" type="button" aria-label="테마 변경" title="테마 변경">◐</button>
-  </header>
 
-  <main>
-    <section class="hero" id="home" aria-label="개인 소개">
-      <img class="hero-image" src="assets/hero-workspace.png" alt="개발자 책상과 노트북이 있는 작업 공간">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="eyebrow">Personal Profile Website</p>
-        <h1>안녕하세요, 개발자 이재우입니다.</h1>
-        <p class="hero-copy">
-          웹 기술과 업무 시스템 개발을 배우고 적용하며, 작은 개선을 꾸준히 쌓아 문제를 해결하는 개발자를 목표로 하고 있습니다.
-        </p>
-        <div class="hero-actions" aria-label="주요 링크">
-          <a class="button primary" href="mailto:ljw5953@gmail.com">메일 보내기</a>
-          <a class="button secondary" href="https://github.com/gugukorn" target="_blank" rel="noreferrer">GitHub 보기</a>
+<!-- ══════ NAVBAR ══════ -->
+<nav class="navbar" id="navbar">
+  <div style="display:flex;align-items:center;gap:2.5rem">
+    <span class="nav-logo">PORTFLIX</span>
+    <div class="nav-links">
+      <a href="#" class="active">홈</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">기술스택</a>
+      <a href="#experience">경력</a>
+      <a href="#awards">자격증/교육</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <button class="nav-search" aria-label="검색">🔍</button>
+    <div class="nav-avatar">JW</div>
+  </div>
+</nav>
+
+<!-- ══════ HERO BILLBOARD ══════ -->
+<section class="billboard">
+  <div class="billboard-bg"></div>
+  <div class="billboard-code">const developer = {
+  name: "이재우",
+  role: "Web Developer",
+  skills: ["Java","ASP.NET","SAP/ABAP"],
+  arch: "실무 업무 시스템 개발",
+  passion: "다양한 현장 경험",
+  certifications: 3,
+  education: 2,
+  projects: 3,
+}
+
+function buildSomethingGreat() {
+  return developer.passion
+    + " × " + developer.arch;
+}</div>
+
+  <div class="billboard-top-badge">
+    <span class="nf-top10">TOP</span>
+    <span class="nf-rank-text">3조</span>
+  </div>
+
+  <div class="billboard-content">
+    <div class="billboard-genre">Web Developer</div>
+    <div class="billboard-name">이<span>재우</span></div>
+    <div class="billboard-subtitle">실무 프로젝트로 업무 흐름을 구현해 온 웹·업무시스템 개발자</div>
+    <div class="billboard-meta">
+      <span class="badge-year">2026</span>
+      <span class="badge-duration">프로젝트 3개</span>
+    </div>
+    <p class="billboard-desc">
+      HNIX와 성우하이텍에서 서비스와 업무 시스템 개발 경험을 쌓았습니다.
+      HNIX에서는 SmartHome/SmartIoT 미들웨어 기반 챗봇을 개발했고,
+      성우하이텍에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 업무를 담당했습니다.
+    </p>
+    <div class="billboard-actions">
+      <button class="btn-play" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <span class="ico">▶</span> 연락하기
+      </button>
+      <button class="btn-info" onclick="openModal('main')">
+        <span>ⓘ</span> 상세 정보
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROJECTS ROW ══════ -->
+<section style="padding-top:2rem" id="projects">
+  <div class="top10-divider fade-up">
+    <span class="top10-box">TOP 3</span>
+    <span class="top10-text">오늘의 주요 프로젝트</span>
+  </div>
+  <div class="section-row fade-up">
+    <div class="row-title">
+      선택된 프로젝트
+      <span class="explore">모두 보기 ›</span>
+    </div>
+    <div class="card-slider">
+
+
+      <!-- 카드 1 -->
+      <div class="project-card" onclick="openModal('p1')">
+        <div class="card-thumb">
+          <div class="card-thumb-inner">
+            <div class="thumb-art" style="background:linear-gradient(135deg,#0d1117,#1a1f35,#0f4c75)">🤖</div>
+          </div>
+          <span class="card-label">HN SmartHome ChatBot 2.0</span>
+          <span class="card-badge">GitHub</span>
+        </div>
+        <div class="card-hover-panel">
+          <div class="panel-actions">
+            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p1')">▶</button>
+            <button class="panel-btn panel-btn-add">＋</button>
+            <button class="panel-btn">👍</button>
+            <button class="panel-btn" style="margin-left:auto">⌄</button>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">SmartIoT</span>
+            <span class="ptag">OAuth/JWT</span>
+            <span class="ptag">Spring Boot</span>
+          </div>
+          <div class="panel-title">HN SmartHome ChatBot 2.0</div>
+          <div class="panel-desc">SmartHome/SmartIoT 미들웨어를 통해 이기종 장치를 조회·제어하는 통합 챗봇</div>
         </div>
       </div>
-    </section>
 
-    <section class="section intro-grid" id="about">
-      <div>
-        <p class="section-kicker">About</p>
-        <h2>배운 것을 실제 화면과 업무 흐름으로 연결합니다.</h2>
-      </div>
-      <div class="intro-text">
-        <p>
-          HTML, CSS, JavaScript를 기반으로 웹 화면을 만들고, Vue.js와 Git/GitHub를 활용해 협업과 버전 관리를 익혀왔습니다.
-          최근에는 SAP FI 개발 및 유지보수, e-Accounting 고도화 같은 업무 시스템 경험을 통해 사용자의 실제 흐름을 이해하는 데 관심을 두고 있습니다.
-        </p>
-        <p>
-          새로운 기술을 빠르게 시도하는 것도 좋아하지만, 결과물을 끝까지 다듬고 설명할 수 있는 개발자가 되는 것을 더 중요하게 생각합니다.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="section-heading">
-        <p class="section-kicker">Skills</p>
-        <h2>사용 기술</h2>
-      </div>
-      <div class="skill-grid">
-        <article class="skill-card">
-          <h3>Frontend</h3>
-          <p>HTML, CSS, JavaScript(ES6), Vue.js</p>
-        </article>
-        <article class="skill-card">
-          <h3>Tools</h3>
-          <p>VS Code, Git, GitHub, GitHub Pages</p>
-        </article>
-        <article class="skill-card">
-          <h3>Business System</h3>
-          <p>SAP FI 개발, e-Accounting 고도화, 유지보수</p>
-        </article>
-        <article class="skill-card">
-          <h3>Working Style</h3>
-          <p>문제 분석, 문서화, 꾸준한 개선, 커뮤니케이션</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section timeline-section" id="experience">
-      <div class="section-heading">
-        <p class="section-kicker">Experience</p>
-        <h2>경험과 학습</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item">
-          <time datetime="2024-09">2024.09 - 현재</time>
-          <div>
-            <h3>SAP FI 개발 및 업무 시스템 유지보수</h3>
-            <p>SAP FI 신규 개발, 유지보수, e-Accounting 고도화 업무를 경험하며 안정적인 업무 흐름을 만드는 방법을 배우고 있습니다.</p>
+      <!-- 카드 2 -->
+      <div class="project-card" onclick="openModal('p2')">
+        <div class="card-thumb">
+          <div class="card-thumb-inner">
+            <div class="thumb-art" style="background:linear-gradient(135deg,#0a0a0a,#1a2f1a,#1d6a3a)">📊</div>
           </div>
-        </article>
-        <article class="timeline-item">
-          <time datetime="2023-08">2023.08 - 2023.12</time>
-          <div>
-            <h3>M/W 업무용 기기 제어 챗봇 개발</h3>
-            <p>업무용 기기 제어를 위한 챗봇 개발 경험을 통해 사용자 요청을 기능으로 연결하는 과정을 익혔습니다.</p>
+          <span class="card-label">Web Visit History Visualization</span>
+        </div>
+        <div class="card-hover-panel">
+          <div class="panel-actions">
+            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p2')">▶</button>
+            <button class="panel-btn panel-btn-add">＋</button>
+            <button class="panel-btn">👍</button>
+            <button class="panel-btn" style="margin-left:auto">⌄</button>
           </div>
-        </article>
-        <article class="timeline-item">
-          <time datetime="2018">2018 - 2024</time>
-          <div>
-            <h3>IT 융합 전공</h3>
-            <p>프로그래밍 기초와 웹 개발, 데이터 처리 등 IT 분야의 기본기를 쌓았습니다.</p>
+          <div class="panel-tags">
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">Visualization</span>
+            <span class="ptag">Browser History</span>
           </div>
-        </article>
+          <div class="panel-title">Web Visit History Visualization</div>
+          <div class="panel-desc">웹 방문 기록을 시각화해 사용 패턴을 한눈에 볼 수 있도록 만든 프로젝트</div>
+        </div>
       </div>
-    </section>
 
-    <section class="section prompt-section" id="ai-prompt">
-      <div class="section-heading">
-        <p class="section-kicker">AI Usage</p>
-        <h2>AI를 사용한 제작 프롬프트</h2>
+      <!-- 카드 3 -->
+      <div class="project-card" onclick="openModal('p3')">
+        <div class="card-thumb">
+          <div class="card-thumb-inner">
+            <div class="thumb-art" style="background:linear-gradient(135deg,#1a0a0a,#3f1a1a,#6b2020)">🏢</div>
+          </div>
+          <span class="card-label">성우하이텍 인도법인 오픈 프로젝트</span>
+        </div>
+        <div class="card-hover-panel">
+          <div class="panel-actions">
+            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p3')">▶</button>
+            <button class="panel-btn panel-btn-add">＋</button>
+            <button class="panel-btn">👍</button>
+            <button class="panel-btn" style="margin-left:auto">⌄</button>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">ASP.NET</span>
+            <span class="ptag">Blazor</span>
+            <span class="ptag">SAP/ABAP</span>
+          </div>
+          <div class="panel-title">인도법인 전자결재/목표이익 오픈</div>
+          <div class="panel-desc">ASP.NET, Blazor, SAP, ABAP 기반으로 그룹웨어/e-Accounting/SAP FI 업무와 함께 진행한 인도법인 오픈 프로젝트</div>
+        </div>
       </div>
-      <div class="prompt-grid">
-        <article class="prompt-card">
-          <h3>웹사이트 제작 프롬프트</h3>
-          <p>
-            "HTML, CSS, JavaScript만 사용해서 개인 소개 웹사이트를 만들어줘. 이름은 이재우이고, 이메일과 GitHub 링크,
-            기술 스택, 교육, 업무 경험, AI 사용 프롬프트를 한 페이지에 정리해줘. 반응형 디자인, 모바일 메뉴, 다크 모드,
-            부드러운 스크롤을 포함하고 GitHub Pages에서 바로 배포할 수 있게 구성해줘."
-          </p>
-        </article>
-        <article class="prompt-card">
-          <h3>이미지 생성 프롬프트</h3>
-          <p>
-            "Create a polished landscape hero image for a Korean junior web/developer personal website. Show a modern desk setup
-            with a laptop, soft daylight, clean workspace, balanced teal, charcoal, white, and yellow accents. No readable text,
-            no logos, no watermark."
-          </p>
-        </article>
-      </div>
-      <p class="prompt-note">
-        이 페이지는 기존 GitHub Pages 저장소의 깨진 텍스트를 정리하고, AI 도움을 받아 구조와 디자인을 새로 구성한 정적 웹사이트입니다.
-      </p>
-    </section>
+    </div><!-- /card-slider -->
+  </div>
+</section>
 
-    <section class="section contact-section" id="contact">
-      <div>
-        <p class="section-kicker">Contact</p>
-        <h2>함께 성장하는 개발자가 되겠습니다.</h2>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:ljw5953@gmail.com">ljw5953@gmail.com</a>
-        <a href="https://github.com/gugukorn" target="_blank" rel="noreferrer">github.com/gugukorn</a>
-      </div>
-    </section>
-  </main>
+<!-- ══════ SKILLS ROW ══════ -->
+<section id="skills" style="padding-top:1rem">
+  <div class="section-row fade-up">
+    <div class="row-title">기술 스택</div>
+  </div>
+  <div class="skill-pills fade-up">
+    <span class="skill-pill hot">Java</span>
+    <span class="skill-pill hot">Spring Boot</span>
+    <span class="skill-pill hot">ASP.NET</span>
+    <span class="skill-pill hot">Blazor</span>
+    <span class="skill-pill hot">SAP</span>
+    <span class="skill-pill hot">ABAP</span>
+    <span class="skill-pill">JavaScript</span>
+    <span class="skill-pill">Vue.js / Vuetify</span>
+    <span class="skill-pill hot">SmartIoT Middleware</span>
+    <span class="skill-pill">OAuth2 / JWT</span>
+    <span class="skill-pill">MyBatis</span>
+    <span class="skill-pill">PostgreSQL / H2</span>
+    <span class="skill-pill">Groupware</span>
+    <span class="skill-pill">e-Accounting</span>
+    <span class="skill-pill">SAP FI</span>
+    <span class="skill-pill hot">MSA</span>
+    <span class="skill-pill">Chromium</span>
+    <span class="skill-pill">Git/GitHub</span>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Lee Jae Woo. Built with HTML, CSS, JavaScript, and AI.</p>
-  </footer>
+
+<!-- ══════ EXPERIENCE ROW ══════ -->
+<section id="experience">
+  <div class="section-row fade-up">
+    <div class="row-title">경력</div>
+  </div>
+  <div class="exp-cards fade-up">
+
+    <div class="exp-card">
+      <div class="exp-period">2023.08 — 2023.12</div>
+      <div class="exp-role">융합기술연구소 인턴</div>
+      <div class="exp-org">HNIX</div>
+      <div class="exp-company-note">서비스 환경에서 인턴 프로젝트 수행</div>
+      <ul class="exp-bullets">
+        <li>SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0 개발</li>
+        <li>OAuth/JWT 사용자 식별, API 응답 및 대화 이력 DB 저장 흐름 구현</li>
+        <li>Adapter/Handler 구조로 이기종 SmartHome 장치 제어 복잡도 분리</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-period">2024.09 — 2026.04</div>
+      <div class="exp-role">그룹웨어/e-Accounting/SAP FI 개발자 · 매니저</div>
+      <div class="exp-org">성우하이텍 IT개발팀</div>
+      <div class="exp-company-note">제조업 기반 사내 업무 시스템 개발·운영 환경에서 근무</div>
+      <ul class="exp-bullets">
+        <li>ASP.NET, Blazor 기반 그룹웨어/e-Accounting 업무 시스템 개발</li>
+        <li>SAP FI 업무와 ABAP 기반 연계/개발 업무 수행</li>
+        <li>인도법인 전자결재/목표이익 오픈 프로젝트와 현업 요구사항 조율 담당</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<!-- ══════ CERTIFICATIONS & EDUCATION ROW ══════ -->
+<section id="awards">
+  <div class="section-row fade-up">
+    <div class="row-title">자격증 · 교육</div>
+  </div>
+  <div style="padding:0 4%;margin-bottom:4rem" class="fade-up">
+    <div style="background:var(--bg-card);border-radius:6px;border:1px solid var(--border);overflow:hidden">
+
+      <div class="award-row">
+        <div class="award-num">01</div>
+        <div class="award-thumb" style="background:linear-gradient(135deg,#1a1f35,#0f4c75)">📘</div>
+        <div class="award-info">
+          <div class="award-title">정보처리기사</div>
+          <div class="award-org">국가기술자격</div>
+        </div>
+        <div style="text-align:right">
+          <div class="award-badge">자격증</div>
+          <div class="award-date" style="margin-top:.4rem">보유</div>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">02</div>
+        <div class="award-thumb" style="background:linear-gradient(135deg,#1a2f1a,#0a4a2a)">✅</div>
+        <div class="award-info">
+          <div class="award-title">ISTQB CTFL</div>
+          <div class="award-org">Software Testing Foundation Level</div>
+        </div>
+        <div style="text-align:right">
+          <div class="award-badge">자격증</div>
+          <div class="award-date" style="margin-top:.4rem">보유</div>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">03</div>
+        <div class="award-thumb" style="background:linear-gradient(135deg,#2a1a0a,#6b3a10)">🛩️</div>
+        <div class="award-info">
+          <div class="award-title">초경량비행장치조종자</div>
+          <div class="award-org">초경량비행장치 조종 자격</div>
+        </div>
+        <div style="text-align:right">
+          <div class="award-badge">자격증</div>
+          <div class="award-date" style="margin-top:.4rem">보유</div>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">04</div>
+        <div class="award-thumb" style="background:linear-gradient(135deg,#0d1117,#2d4a8f)">🌐</div>
+        <div class="award-info">
+          <div class="award-title">오픈소스컨트리뷰션아카데미</div>
+          <div class="award-org">Git 활용 및 Chromium 과정 수료 · Jaewoo Lee &lt;ljw5953@gmail.com&gt; <a class="award-link" href="https://chromium.googlesource.com/chromium/src/+/HEAD/AUTHORS" target="_blank" rel="noopener">Chromium AUTHORS에서 확인</a></div>
+        </div>
+        <div style="text-align:right">
+          <div class="award-badge">교육/기여</div>
+          <div class="award-date" style="margin-top:.4rem">2025</div>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">05</div>
+        <div class="award-thumb" style="background:linear-gradient(135deg,#102522,#00D2A8)">🧩</div>
+        <div class="award-info">
+          <div class="award-title">KOSA MSA기반 fullstack 개발자 양성과정</div>
+          <div class="award-org">MSA 기반 fullstack 개발자 과정 수강 중</div>
+        </div>
+        <div style="text-align:right">
+          <div class="award-badge">교육</div>
+          <div class="award-date" style="margin-top:.4rem">2026.04 — 현재</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section class="contact-section fade-up" id="contact">
+  <div class="contact-label">Contact</div>
+  <div class="contact-headline">같이 만들어요,<br><span style="color:var(--nf-red)">지금 바로.</span></div>
+  <p class="contact-desc">
+    새로운 기회와 협업에 항상 열려 있습니다.<br>
+    편하게 연락 주세요 :)
+  </p>
+  <div class="contact-links">
+    <a href="mailto:ljw5953@gmail.com" class="contact-link">
+      <span class="ico">📧</span> ljw5953@gmail.com
+    </a>
+    <a href="#contact" class="contact-link">
+      <span class="ico">📱</span> 010-9146-5961
+    </a>
+    <a href="https://github.com/gugukorn" target="_blank" rel="noopener" class="contact-link">
+      <span class="ico">🐙</span> github.com/gugukorn
+    </a>
+  </div>
+  <a href="mailto:ljw5953@gmail.com" class="contact-btn">
+    ▶ 메일 보내기
+  </a>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-logo">PORTFLIX</div>
+  <div class="footer-links">
+    <a href="https://github.com/gugukorn" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:ljw5953@gmail.com">Email</a>
+  </div>
+  <div class="footer-copy">© 2026 이재우. All rights reserved. Made with ❤️ & Netflix vibes.</div>
+</footer>
+
+<!-- ══════ MODAL ══════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-hero" id="modalHero">
+      <div class="modal-hero-bg" id="modalBg"></div>
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-content">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-actions">
+          <button class="btn-play" id="modalLinkBtn" style="font-size:.88rem;padding:.6rem 1.4rem">▶ 자세히 보기</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-meta-row">
+        <span class="m-match" id="modalMatch"></span>
+        <span class="m-year" id="modalYear"></span>
+        <span class="m-hd">프로젝트</span>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-tags-section" id="modalTags"></div>
+      </div>
+      <div class="modal-more" id="modalMore">
+        <div class="modal-more-title">함께 시청된 콘텐츠</div>
+        <div class="modal-more-grid" id="modalMoreGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── NAVBAR SCROLL ── */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('solid',window.scrollY>80);
+},{passive:true});
+
+/* ── FADE-UP OBSERVER ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* ── MODAL DATA ── */
+const modals={
+  main:{
+    title:'이재우',
+    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a1a2e,#0f3460);display:flex;align-items:center;justify-content:center;font-size:5rem">👨‍💻</div>',
+    match:'98% 일치',year:'2026',
+    url:'https://github.com/gugukorn',
+    desc:'HNIX 융합기술연구소 인턴으로 SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0을 개발했고, 성우하이텍 IT개발팀에서는 2024년 9월부터 2026년 4월까지 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무했습니다. 서로 다른 도메인의 실무 환경을 경험하며 기능 구현과 운영 흐름을 함께 익혀 온 점이 강점입니다.',
+    tags:'<div class="modal-tag-row"><span>경력: </span><span>HNIX 인턴, 성우하이텍 매니저</span></div><div class="modal-tag-row"><span>업무: </span><span>SmartHome ChatBot, ASP.NET, Blazor, SAP/ABAP</span></div><div class="modal-tag-row"><span>자격증: </span><span>정보처리기사, ISTQB CTFL, 초경량비행장치조종자</span></div><div class="modal-tag-row"><span>교육: </span><span>오픈소스컨트리뷰션아카데미, KOSA MSA fullstack</span></div><div class="modal-tag-row"><span>GitHub: </span><span>github.com/gugukorn</span></div>',
+    more:[
+      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
+      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
+      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
+    ]
+  },
+  p1:{
+    title:'HN SmartHome ChatBot 2.0',
+    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1117,#1a1f35,#0f4c75);display:flex;align-items:center;justify-content:center;font-size:5rem">🤖</div>',
+    match:'인턴 3차 프로젝트',year:'2023',
+    url:'https://github.com/gugukorn/HNIX-Simple-ChatBot',
+    desc:'HNIX 장기현장실습 중 진행한 HN SmartHome ChatBot 2.0 프로젝트입니다. 사용자가 SmartHome API나 장치별 제어 프로토콜을 직접 알지 못해도 챗봇으로 이기종 SmartHome 장치를 조회하고 제어할 수 있도록 만들었습니다. 1차 챗봇의 OAuth 로그인, Access Token 처리, API 응답 DB 저장 구조와 2차 SmartIoT Adapter/가상장치 제어 경험을 통합하고, 자연어 처리, OAuth 사용자 식별, 에러 처리, UI/UX 개선, 코드 리팩토링을 추가했습니다.',
+    tags:'<div class="modal-tag-row"><span>회사: </span><span>HNIX 융합기술연구소</span></div><div class="modal-tag-row"><span>기간: </span><span>2023.08 — 2023.12</span></div><div class="modal-tag-row"><span>구조: </span><span>SmartHome/SmartIoT 미들웨어, Adapter/Handler, 이기종 장치 제어</span></div><div class="modal-tag-row"><span>기능: </span><span>HNID OAuth/JWT, 자연어 의도 해석, 대화 이력 DB 저장, mock local 프로필</span></div><div class="modal-tag-row"><span>기술: </span><span>Java 8, Spring Boot 2.7, WebClient, MyBatis, PostgreSQL, H2, Vue/Vuetify</span></div>',
+    more:[
+      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
+      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
+      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
+    ]
+  },
+  p2:{
+    title:'Web Visit History Visualization',
+    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a2f1a,#1d6a3a);display:flex;align-items:center;justify-content:center;font-size:5rem">📊</div>',
+    match:'GitHub 공개',year:'2026',
+    url:'https://github.com/gugukorn/WebVisitHistoryVisualization',
+    desc:'WebVisitHistoryVisualization은 웹 방문 기록 데이터를 보기 쉽게 시각화하는 프로젝트입니다. 방문 기록을 단순 목록이 아니라 패턴을 파악할 수 있는 형태로 정리해 사용자의 웹 이용 흐름을 더 직관적으로 확인할 수 있게 했습니다.',
+    tags:'<div class="modal-tag-row"><span>저장소: </span><span>github.com/gugukorn/WebVisitHistoryVisualization</span></div><div class="modal-tag-row"><span>유형: </span><span>방문 기록 시각화</span></div><div class="modal-tag-row"><span>핵심: </span><span>데이터 가공, 시각화 UI, 사용자 패턴 분석</span></div>',
+    more:[
+      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
+      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
+      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
+    ]
+  },
+  p3:{
+    title:'성우하이텍 인도법인 전자결재/목표이익 오픈',
+    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a0a,#3f1a1a,#6b2020);display:flex;align-items:center;justify-content:center;font-size:5rem">🏢</div>',
+    match:'실무 오픈',year:'2024-2026',
+    url:null,
+    desc:'성우하이텍 IT개발팀에서 2024년 9월부터 2026년 4월까지 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무하며 진행한 인도법인 전자결재/목표이익 오픈 프로젝트입니다. 법인 업무 흐름에 맞춰 결재 프로세스와 목표이익 관리 기능이 실제 운영 환경에서 사용할 수 있도록 정리하고 오픈 대응을 수행했습니다.',
+    tags:'<div class="modal-tag-row"><span>소속: </span><span>성우하이텍 IT개발팀</span></div><div class="modal-tag-row"><span>기간: </span><span>2024.09 — 2026.04</span></div><div class="modal-tag-row"><span>직무: </span><span>그룹웨어/e-Accounting/SAP FI 개발자 · 매니저</span></div><div class="modal-tag-row"><span>기술: </span><span>ASP.NET, Blazor, SAP, ABAP</span></div><div class="modal-tag-row"><span>업무: </span><span>인도법인 전자결재, 목표이익, 오픈 대응</span></div>',
+    more:[
+      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
+      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
+      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
+    ]
+  }
+};
+
+function openModal(id){
+  const d=modals[id];if(!d)return;
+  document.getElementById('modalBg').innerHTML=d.bg;
+  document.getElementById('modalTitle').textContent=d.title;
+  document.getElementById('modalMatch').textContent=d.match;
+  document.getElementById('modalYear').textContent=d.year;
+  document.getElementById('modalDesc').textContent=d.desc;
+  document.getElementById('modalTags').innerHTML=d.tags;
+  const linkBtn=document.getElementById('modalLinkBtn');
+  if(d.url){
+    linkBtn.style.display='inline-flex';
+    linkBtn.textContent=id==='main'?'▶ GitHub 보기':'▶ 자세히 보기';
+    linkBtn.onclick=()=>window.open(d.url,'_blank','noopener');
+  }else{
+    linkBtn.style.display='none';
+    linkBtn.onclick=null;
+  }
+  const mg=document.getElementById('modalMoreGrid');
+  mg.innerHTML=d.more.map(m=>`
+    <div class="modal-more-card">
+      <div class="modal-more-thumb">${m.emoji}</div>
+      <div class="modal-more-info">
+        <p>${m.title}</p>
+        <span>${m.sub}</span>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('modalOverlay'))closeModal();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
 </body>
 </html>
