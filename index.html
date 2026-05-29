@@ -1,1083 +1,1817 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>이재우 | Portfolio</title>
-<style>
-@import "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="이재우 개인 소개 페이지" />
+  <title>이재우 | PORTFLIX</title>
+  <style>
+    @import "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
 
-/* ══════════════════════════════════════
-   RESET & ROOT
-══════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --nf-red:#00D2A8;          /* 현대퓨처넷 에메랄드 */
-  --nf-red-hover:#00997A;    /* hover */
-  --bg:#071412;              /* 딥 다크 그린 */
-  --bg-card:#0D1E1B;         /* 카드 배경 */
-  --bg-modal:#102522;        /* 모달 배경 */
-  --text:#ffffff;
-  --text-muted:#9CCBC2;
-  --text-dim:#5F8F86;
-  --border:#1F4D46;
-  --ff:'Pretendard Variable',Pretendard,sans-serif;
-  --nav-h:68px;
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:var(--ff);overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
-button{cursor:pointer;font-family:var(--ff)}
-img{display:block;max-width:100%}
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ══════════════════════════════════════
-   SCROLLBAR
-══════════════════════════════════════ */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:#444;border-radius:3px}
+    :root {
+      --nf-red: #00d2a8;
+      --nf-red-hover: #00997a;
+      --bg: #071412;
+      --bg-card: #0d1e1b;
+      --bg-modal: #102522;
+      --text: #ffffff;
+      --text-muted: #9ccbc2;
+      --text-dim: #5f8f86;
+      --border: #1f4d46;
+      --ff: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+      --nav-h: 68px;
+    }
 
-/* ══════════════════════════════════════
-   NAVBAR — 넷플릭스 상단바
-══════════════════════════════════════ */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 4%;
-  background:linear-gradient(to bottom,rgba(0,0,0,.85) 0%,transparent 100%);
-  transition:background .4s;
-}
-.navbar.solid{background:rgba(20,20,20,.97)}
-.nav-logo{
-  font-size:1.7rem;font-weight:900;color:var(--nf-red);
-  letter-spacing:-.02em;margin-right:2.5rem;flex-shrink:0;
-  font-style:italic;
-}
-.nav-links{display:flex;gap:1.25rem;align-items:center}
-.nav-links a{
-  font-size:.82rem;color:rgba(255,255,255,.75);
-  transition:color .2s;font-weight:500;
-}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-right{display:flex;align-items:center;gap:1.25rem}
-.nav-search{
-  background:none;border:none;color:#fff;
-  font-size:1.1rem;padding:.35rem;opacity:.8;
-  transition:opacity .2s;
-}
-.nav-search:hover{opacity:1}
-.nav-avatar{
-  width:34px;height:34px;border-radius:5px;
-  background:linear-gradient(135deg,var(--nf-red),#8B0000);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;font-weight:900;cursor:pointer;
-  flex-shrink:0;
-}
+    html, body {
+      height: 100%;
+    }
 
-/* ══════════════════════════════════════
-   HERO BILLBOARD
-══════════════════════════════════════ */
-.billboard{
-  position:relative;
-  height:100vh;min-height:600px;
-  display:flex;align-items:flex-end;
-  padding:0 4% 12%;
-  overflow:hidden;
-}
+    body {
+      background: #d9dce6;
+      color: var(--text);
+      font-family: var(--ff);
+      overflow: hidden;
+    }
 
-/* 배경 — 그라디언트 신원 카드 */
-.billboard-bg{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to right,rgba(20,20,20,.9) 30%,transparent 70%),
-    linear-gradient(to top,rgba(20,20,20,1) 0%,rgba(20,20,20,.5) 30%,transparent 60%),
-    linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 40%,#16213e 70%,#0f3460 100%);
-  z-index:0;
-}
-/* 배경 장식 — 코드 패턴 */
-.billboard-code{
-  position:absolute;right:5%;top:50%;transform:translateY(-50%);
-  font-family:'Courier New',monospace;font-size:.75rem;
-  color:rgba(229,9,20,.12);line-height:1.8;
-  pointer-events:none;z-index:0;white-space:pre;
-  animation:codeFloat 6s ease-in-out infinite alternate;
-}
-@keyframes codeFloat{
-  from{transform:translateY(-50%) translateX(0)}
-  to{transform:translateY(-53%) translateX(-8px)}
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.billboard-top-badge{
-  position:absolute;top:8rem;left:4%;z-index:1;
-  display:flex;align-items:center;gap:.5rem;
-}
-.nf-top10{
-  background:var(--nf-red);color:#fff;
-  font-size:.65rem;font-weight:900;padding:.2rem .5rem;
-  border-radius:3px;letter-spacing:.08em;
-}
-.nf-rank-text{font-size:.82rem;font-weight:600;color:#fff}
+    ul {
+      list-style: none;
+    }
 
-.billboard-content{position:relative;z-index:1;max-width:520px}
+    button {
+      border: 0;
+      cursor: pointer;
+      font-family: var(--ff);
+    }
 
-.billboard-genre{
-  font-size:.72rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--nf-red);
-  margin-bottom:.75rem;
-}
-.billboard-name{
-  font-size:clamp(3.5rem,8vw,6.5rem);
-  font-weight:900;line-height:.9;
-  letter-spacing:-.04em;margin-bottom:.5rem;
-  text-shadow:2px 4px 20px rgba(0,0,0,.8);
-}
-.billboard-name span{color:var(--nf-red)}
-.billboard-subtitle{
-  font-size:1.1rem;color:rgba(255,255,255,.75);
-  margin-bottom:1.25rem;font-weight:400;
-}
-.billboard-meta{
-  display:flex;align-items:center;gap:.75rem;
-  margin-bottom:1.5rem;flex-wrap:wrap;
-}
-.match-score{color:#46d369;font-weight:700;font-size:.9rem}
-.badge-year,.badge-rating,.badge-duration{
-  font-size:.78rem;color:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.4);
-  padding:.1rem .45rem;border-radius:2px;
-}
-.badge-rating{border-color:rgba(255,255,255,.6);color:#fff}
-.billboard-desc{
-  font-size:.92rem;color:rgba(255,255,255,.75);
-  line-height:1.7;margin-bottom:2rem;
-  display:-webkit-box;-webkit-line-clamp:3;
-  -webkit-box-orient:vertical;overflow:hidden;
-}
-.billboard-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.btn-play{
-  display:flex;align-items:center;gap:.55rem;
-  background:#fff;color:#000;
-  padding:.7rem 1.75rem;border-radius:4px;
-  font-size:.95rem;font-weight:700;border:none;
-  transition:background .2s;
-}
-.btn-play:hover{background:rgba(255,255,255,.8)}
-.btn-play .ico{font-size:1.1rem}
+    .landscape-stage {
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 20px;
+    }
 
-.btn-info{
-  display:flex;align-items:center;gap:.55rem;
-  background:rgba(109,109,110,.7);color:#fff;
-  padding:.7rem 1.6rem;border-radius:4px;
-  font-size:.95rem;font-weight:600;border:none;
-  backdrop-filter:blur(4px);
-  transition:background .2s;
-}
-.btn-info:hover{background:rgba(109,109,110,.5)}
+    .landscape-phone {
+      width: min(1060px, calc(100vw - 32px));
+      height: min(596px, calc(100vh - 32px));
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+      border: 12px solid #151515;
+      border-radius: 38px;
+      background: #050505;
+      box-shadow:
+        0 34px 80px rgba(20, 24, 34, .3),
+        inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
 
-/* ══════════════════════════════════════
-   SECTION ROW — 넷플릭스 콘텐츠 행
-══════════════════════════════════════ */
-.section-row{
-  padding:0 4%;margin-bottom:3.5rem;
-  position:relative;
-}
-.row-title{
-  font-size:1.1rem;font-weight:700;
-  margin-bottom:1rem;color:#e5e5e5;
-  display:flex;align-items:center;gap:.75rem;
-}
-.row-title .explore{
-  font-size:.78rem;color:#54b9c5;font-weight:600;
-  opacity:0;transition:opacity .25s;cursor:pointer;
-}
-.section-row:hover .explore{opacity:1}
-.row-title .explore:hover{text-decoration:underline}
+    .landscape-phone::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 52px;
+      z-index: 4;
+      background: #070707;
+      border-right: 1px solid rgba(255, 255, 255, .04);
+    }
 
-/* 카드 슬라이더 */
-.card-slider{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:.35rem;
-  overflow:visible;
-}
-#projects .card-slider{padding-bottom:8rem}
-#projects .section-row{margin-bottom:1rem}
+    .landscape-screen {
+      position: absolute;
+      inset: 0 0 0 52px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--bg);
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
+    }
 
-/* ══════════════════════════════════════
-   PROJECT CARD
-══════════════════════════════════════ */
-.project-card{
-  position:relative;border-radius:4px;
-  overflow:visible;cursor:pointer;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),z-index 0s .35s;
-}
-.project-card:hover{
-  transform:translateY(-6px) scale(1.08);z-index:50;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),z-index 0s;
-}
-/* 양 끝 카드 overflow fix */
-.card-slider .project-card:first-child:hover{transform:translateY(-6px) scale(1.08) translateX(3%);}
-.card-slider .project-card:last-child:hover{transform:translateY(-6px) scale(1.08) translateX(-3%);}
+    .landscape-screen.drag-scrolling {
+      cursor: grabbing;
+      user-select: none;
+    }
 
-.card-thumb{
-  width:100%;aspect-ratio:16/9;border-radius:4px;
-  position:relative;overflow:hidden;
-  background:var(--bg-card);
-}
-.card-thumb-inner{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  position:relative;
-  transition:filter .35s;
-}
-.project-card:hover .card-thumb-inner{filter:brightness(.5)}
-.card-label{
-  position:absolute;bottom:.5rem;left:.6rem;
-  font-size:.78rem;font-weight:800;letter-spacing:.04em;
-  text-shadow:0 2px 6px rgba(0,0,0,.9);
-}
-.card-badge{
-  position:absolute;top:.5rem;left:.5rem;
-  background:var(--nf-red);color:#fff;
-  font-size:.6rem;font-weight:900;padding:.15rem .4rem;
-  border-radius:2px;letter-spacing:.08em;
-}
+    .landscape-screen::-webkit-scrollbar {
+      width: 6px;
+    }
 
-/* 카드 아이콘 (SVG 대신 이모지 아트) */
-.thumb-art{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  font-size:3rem;
-  background-size:cover;background-position:center;
-}
+    .landscape-screen::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
 
-/* hover 패널 */
-.card-hover-panel{
-  position:absolute;top:100%;left:0;right:0;
-  background:var(--bg-modal);
-  border-radius:0 0 6px 6px;
-  padding:1rem;z-index:50;
-  opacity:0;pointer-events:none;
-  transition:opacity .2s .15s;
-  box-shadow:0 8px 24px rgba(0,0,0,.8);
-  border:1px solid var(--border);border-top:none;
-}
-.project-card:hover .card-hover-panel{opacity:1;pointer-events:auto}
+    .landscape-screen::-webkit-scrollbar-thumb {
+      background: #2a5f56;
+      border-radius: 999px;
+    }
 
-.panel-actions{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
-.panel-btn{
-  width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);
-  background:transparent;color:#fff;font-size:.85rem;
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s,background .2s;
-}
-.panel-btn:hover{border-color:#fff;background:rgba(255,255,255,.12)}
-.panel-btn.play{
-  background:#fff;color:#000;border-color:#fff;font-size:1rem;
-}
-.panel-btn.play:hover{background:rgba(255,255,255,.85)}
-.panel-btn-add{margin-right:auto}
-.panel-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
-.ptag{
-  font-size:.65rem;font-weight:700;
-  color:rgba(255,255,255,.6);letter-spacing:.04em;
-}
-.ptag::after{content:'·';margin-left:.4rem;color:rgba(255,255,255,.3)}
-.ptag:last-child::after{display:none}
-.panel-title{font-size:.88rem;font-weight:700;margin-bottom:.25rem}
-.panel-desc{font-size:.75rem;color:var(--text-muted);line-height:1.55}
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding: 0 4%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .85), transparent);
+      transition: background .35s;
+    }
 
-/* ══════════════════════════════════════
-   SKILL ROW — 넷플릭스 장르 버튼 형식
-══════════════════════════════════════ */
-.skill-pills{
-  display:flex;flex-wrap:wrap;gap:.5rem;
-  padding:0 4%;margin-bottom:4rem;
-}
-.skill-pill{
-  padding:.45rem 1.1rem;
-  border-radius:3px;
-  font-size:.8rem;font-weight:600;
-  border:1.5px solid rgba(255,255,255,.2);
-  color:rgba(255,255,255,.8);
-  background:transparent;
-  transition:border-color .2s,color .2s,background .2s;
-  cursor:default;
-}
-.skill-pill:hover{
-  border-color:rgba(255,255,255,.7);
-  color:#fff;background:rgba(255,255,255,.08);
-}
-.skill-pill.hot{
-  border-color:var(--nf-red);color:var(--nf-red);
-}
-.skill-pill.hot:hover{background:rgba(229,9,20,.1)}
+    .navbar.solid {
+      background: rgba(20, 20, 20, .97);
+    }
 
-/* ══════════════════════════════════════
-   EXPERIENCE TIMELINE ROW
-══════════════════════════════════════ */
-.exp-cards{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:.35rem;padding:0 4%;margin-bottom:4rem;
-}
-.exp-card{
-  background:var(--bg-card);border-radius:4px;
-  padding:1.75rem 1.5rem;border:1px solid var(--border);
-  transition:border-color .25s,transform .25s;cursor:default;
-  position:relative;overflow:hidden;
-}
-.exp-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:var(--nf-red);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .35s cubic-bezier(.4,0,.2,1);
-}
-.exp-card:hover::before{transform:scaleX(1)}
-.exp-card:hover{border-color:#555;transform:translateY(-3px)}
-.exp-period{
-  font-size:.68rem;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--nf-red);margin-bottom:.6rem;
-}
-.exp-role{font-size:1rem;font-weight:700;margin-bottom:.2rem}
-.exp-org{
-  display:inline-flex;align-items:center;gap:.4rem;
-  width:max-content;max-width:100%;
-  font-size:.82rem;color:#071412;font-weight:900;
-  background:var(--nf-red);padding:.28rem .65rem;border-radius:3px;
-  margin-bottom:.75rem;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
-}
-.exp-company-note{
-  font-size:.78rem;color:rgba(255,255,255,.78);line-height:1.6;
-  margin-bottom:.9rem;padding:.65rem .75rem;
-  background:rgba(255,255,255,.045);border-left:3px solid var(--nf-red);
-  border-radius:3px;
-}
-.exp-bullets{display:flex;flex-direction:column;gap:.35rem}
-.exp-bullets li{
-  font-size:.8rem;color:var(--text-muted);line-height:1.6;
-  padding-left:.9rem;position:relative;
-}
-.exp-bullets li::before{
-  content:'▸';position:absolute;left:0;
-  color:var(--nf-red);font-size:.65rem;top:.1rem;
-}
+    .nav-left,
+    .nav-links,
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
 
-/* ══════════════════════════════════════
-   AWARDS ROW
-══════════════════════════════════════ */
-.award-row{
-  display:flex;align-items:center;gap:1.25rem;
-  padding:1rem 1.5rem;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transition:background .2s;cursor:default;
-}
-.award-row:hover{background:rgba(255,255,255,.04)}
-.award-num{
-  font-size:2.5rem;font-weight:900;color:rgba(255,255,255,.08);
-  min-width:3rem;text-align:center;line-height:1;
-}
-.award-thumb{
-  width:60px;height:60px;border-radius:4px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.8rem;
-}
-.award-info{flex:1}
-.award-title{font-size:.9rem;font-weight:700;margin-bottom:.25rem}
-.award-org{font-size:.78rem;color:var(--text-muted)}
-.award-org a{
-  color:var(--nf-red);
-  font-weight:800;
-  text-decoration:underline;
-  text-decoration-thickness:1.5px;
-  text-underline-offset:3px;
-}
-.award-org a:hover{color:#fff}
-.award-link::after{
-  content:'↗';
-  display:inline-block;
-  margin-left:.25rem;
-  font-size:.72rem;
-  transform:translateY(-1px);
-}
-.award-date{font-size:.72rem;color:var(--text-dim)}
-.award-badge{
-  background:var(--nf-red);color:#fff;
-  font-size:.65rem;font-weight:900;
-  padding:.2rem .55rem;border-radius:2px;
-  letter-spacing:.06em;flex-shrink:0;
-}
+    .nav-left {
+      gap: 2.5rem;
+      min-width: 0;
+    }
 
-/* ══════════════════════════════════════
-   CONTACT — 하단 섹션
-══════════════════════════════════════ */
-.contact-section{
-  padding:5rem 4%;
-  background:linear-gradient(to top,rgba(0,0,0,.8),transparent),
-             var(--bg-card);
-  border-top:1px solid var(--border);
-}
-.contact-label{
-  font-size:.72rem;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--nf-red);margin-bottom:1rem;
-}
-.contact-headline{
-  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
-  margin-bottom:1rem;line-height:1.1;
-}
-.contact-desc{
-  font-size:.95rem;color:var(--text-muted);
-  margin-bottom:2rem;max-width:480px;line-height:1.7;
-}
-.contact-links{
-  display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:3rem;
-}
-.contact-link{
-  display:flex;align-items:center;gap:.6rem;
-  padding:.65rem 1.25rem;
-  background:rgba(255,255,255,.07);border:1px solid var(--border);
-  border-radius:4px;font-size:.82rem;font-weight:600;
-  color:rgba(255,255,255,.8);
-  transition:background .2s,border-color .2s,color .2s;
-}
-.contact-link:hover{
-  background:rgba(229,9,20,.15);
-  border-color:var(--nf-red);color:#fff;
-}
-.contact-link .ico{font-size:1rem}
-.contact-btn{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--nf-red);color:#fff;
-  padding:.8rem 2rem;border-radius:4px;
-  font-size:.92rem;font-weight:700;border:none;
-  transition:background .2s,transform .15s;
-}
-.contact-btn:hover{background:var(--nf-red-hover);transform:scale(1.02)}
+    .nav-logo {
+      color: var(--nf-red);
+      font-size: 1.7rem;
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin-right: 2.5rem;
+      flex-shrink: 0;
+    }
 
-/* ══════════════════════════════════════
-   MODAL — 넷플릭스 상세 팝업
-══════════════════════════════════════ */
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.75);
-  z-index:9000;display:flex;align-items:center;justify-content:center;
-  padding:2rem;opacity:0;pointer-events:none;
-  transition:opacity .3s;
-}
-.modal-overlay.open{opacity:1;pointer-events:auto}
+    .nav-links {
+      gap: 1.25rem;
+    }
 
-.modal{
-  background:var(--bg-modal);border-radius:8px;
-  width:100%;max-width:850px;max-height:90vh;
-  overflow-y:auto;position:relative;
-  transform:scale(.9);
-  transition:transform .3s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 20px 60px rgba(0,0,0,.9);
-}
-.modal-overlay.open .modal{transform:scale(1)}
+    .nav-links a {
+      color: rgba(255, 255, 255, .74);
+      font-size: .82rem;
+      font-weight: 600;
+      transition: color .2s;
+      white-space: nowrap;
+    }
 
-.modal-hero{
-  position:relative;width:100%;aspect-ratio:16/7;
-  overflow:hidden;border-radius:8px 8px 0 0;
-  display:flex;align-items:flex-end;
-}
-.modal-hero-bg{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:6rem;
-}
-.modal-hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,var(--bg-modal) 0%,transparent 60%),
-             linear-gradient(to right,rgba(0,0,0,.4),transparent);
-}
-.modal-hero-content{position:relative;z-index:1;padding:2rem 2.5rem 1.5rem}
-.modal-title{
-  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
-  letter-spacing:-.03em;margin-bottom:.5rem;
-  text-shadow:0 2px 10px rgba(0,0,0,.8);
-}
-.modal-actions{display:flex;gap:.65rem;flex-wrap:wrap}
-.modal-close{
-  position:absolute;top:1rem;right:1rem;z-index:10;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(20,20,20,.85);border:1.5px solid rgba(255,255,255,.4);
-  color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s;
-}
-.modal-close:hover{border-color:#fff}
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
 
-.modal-body{padding:1.75rem 2.5rem 2.5rem}
-.modal-meta-row{
-  display:flex;align-items:center;gap:.75rem;
-  margin-bottom:1.25rem;flex-wrap:wrap;
-}
-.m-match{color:#46d369;font-weight:700}
-.m-year,.m-hd{
-  font-size:.8rem;color:rgba(255,255,255,.6);
-  border:1px solid rgba(255,255,255,.35);
-  padding:.1rem .4rem;border-radius:2px;
-}
-.modal-grid{display:grid;grid-template-columns:1fr auto;gap:2rem}
-.modal-desc{font-size:.92rem;color:rgba(255,255,255,.75);line-height:1.75}
-.modal-tags-section{}
-.modal-tag-row{font-size:.82rem;margin-bottom:.5rem}
-.modal-tag-row span:first-child{color:var(--text-dim)}
-.modal-tag-row span+span{color:rgba(255,255,255,.8)}
+    .nav-avatar {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      color: #061b17;
+      background: linear-gradient(135deg, var(--nf-red), #7af0d6);
+      font-size: .85rem;
+      font-weight: 900;
+    }
 
-.modal-more{margin-top:2.5rem}
-.modal-more-title{
-  font-size:1.1rem;font-weight:700;
-  margin-bottom:1rem;padding-bottom:.75rem;
-  border-bottom:1px solid var(--border);
-}
-.modal-more-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;
-}
-.modal-more-card{
-  background:var(--bg-card);border-radius:4px;overflow:hidden;cursor:pointer;
-  transition:transform .2s;border:1px solid var(--border);
-}
-.modal-more-card:hover{transform:scale(1.03)}
-.modal-more-thumb{
-  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
-  font-size:2rem;background:rgba(255,255,255,.04);
-}
-.modal-more-info{padding:.6rem .75rem}
-.modal-more-info p{font-size:.78rem;font-weight:600}
-.modal-more-info span{font-size:.7rem;color:var(--text-muted)}
+    .billboard {
+      position: relative;
+      height: 520px;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding: 7.25rem 4% 3.5rem;
+    }
 
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
-footer{
-  padding:3rem 4% 4rem;
-  border-top:1px solid var(--border);
-}
-.footer-logo{
-  font-size:1.2rem;font-weight:900;color:var(--nf-red);
-  font-style:italic;margin-bottom:1.5rem;
-}
-.footer-links{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin-bottom:1.5rem}
-.footer-links a{font-size:.78rem;color:var(--text-muted);transition:color .2s}
-.footer-links a:hover{color:#fff}
-.footer-copy{font-size:.75rem;color:var(--text-dim)}
+    .billboard-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(to right, rgba(7, 20, 18, .96) 28%, rgba(7, 20, 18, .6) 58%, rgba(7, 20, 18, .18)),
+        linear-gradient(to top, rgba(7, 20, 18, 1) 0%, rgba(7, 20, 18, .62) 35%, transparent 68%),
+        linear-gradient(135deg, #06100f 0%, #0d2d28 42%, #115246 72%, #061210 100%);
+    }
 
-/* ══════════════════════════════════════
-   DIVIDER — "TOP 10" 스타일 구분
-══════════════════════════════════════ */
-.top10-divider{
-  display:flex;align-items:center;gap:.75rem;
-  padding:0 4%;margin-bottom:1rem;
-}
-.top10-box{
-  background:var(--nf-red);color:#fff;
-  font-size:.6rem;font-weight:900;padding:.2rem .45rem;border-radius:2px;
-  letter-spacing:.08em;
-}
-.top10-text{font-size:.82rem;font-weight:600}
+    .billboard-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to left, #000, transparent 72%);
+    }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-@media(max-width:768px){
-  .navbar{padding:0 3%}
-  .nav-links{display:none}
-  .billboard{padding:0 3% 18%}
-  .billboard-code{display:none}
-  .section-row,.skill-pills,.exp-cards,.contact-section{padding-left:3%;padding-right:3%}
-  .card-slider{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-  #projects .card-slider{padding-bottom:7rem}
-  .project-card:hover{transform:translateY(-4px) scale(1.04)}
-  .modal-grid{grid-template-columns:1fr}
-  .modal-more-grid{grid-template-columns:repeat(2,1fr)}
-  .modal{border-radius:4px}
-  .modal-body{padding:1.25rem 1.5rem 2rem}
-  .modal-hero-content{padding:1.25rem 1.5rem 1rem}
-}
+    .billboard-top-badge {
+      position: absolute;
+      top: 5.4rem;
+      left: 4%;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
 
-/* ══════════════════════════════════════
-   FADE-IN ANIMATION
-══════════════════════════════════════ */
-.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-</style>
+    .nf-top10 {
+      padding: .2rem .5rem;
+      border-radius: 3px;
+      color: #061b17;
+      background: var(--nf-red);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .nf-rank-text {
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .billboard-content {
+      position: relative;
+      z-index: 1;
+      width: min(560px, 100%);
+    }
+
+    .billboard-genre {
+      margin-bottom: .75rem;
+      color: var(--nf-red);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .billboard-name {
+      margin-bottom: .5rem;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: .9;
+      text-shadow: 2px 4px 20px rgba(0, 0, 0, .8);
+    }
+
+    .billboard-name span {
+      color: var(--nf-red);
+    }
+
+    .billboard-subtitle {
+      margin-bottom: 1.25rem;
+      color: rgba(255, 255, 255, .78);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .billboard-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-year,
+    .badge-duration,
+    .badge-rating {
+      padding: .1rem .45rem;
+      border: 1px solid rgba(255, 255, 255, .4);
+      border-radius: 2px;
+      color: rgba(255, 255, 255, .72);
+      font-size: .78rem;
+    }
+
+    .badge-rating {
+      border-color: rgba(255, 255, 255, .6);
+      color: #fff;
+    }
+
+    .billboard-desc {
+      display: -webkit-box;
+      max-width: 560px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: .92rem;
+      line-height: 1.75;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .billboard-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .btn-play,
+    .btn-info,
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 42px;
+      border-radius: 4px;
+      font-size: .95rem;
+      font-weight: 800;
+      transition: background .2s, transform .15s, color .2s;
+    }
+
+    .btn-play {
+      padding: .7rem 1.75rem;
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-play:hover {
+      background: rgba(255, 255, 255, .84);
+    }
+
+    .btn-info {
+      padding: .7rem 1.6rem;
+      color: #fff;
+      background: rgba(109, 109, 110, .7);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-info:hover {
+      background: rgba(109, 109, 110, .52);
+    }
+
+    .top10-divider {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 2rem 4% .85rem;
+    }
+
+    .top10-box {
+      padding: .28rem .6rem;
+      border-radius: 3px;
+      color: #071412;
+      background: var(--nf-red);
+      font-size: .74rem;
+      font-weight: 900;
+    }
+
+    .top10-text {
+      color: #fff;
+      font-size: .98rem;
+      font-weight: 800;
+    }
+
+    .section-row {
+      position: relative;
+      padding: 0 4%;
+      margin-bottom: 3.5rem;
+    }
+
+    .row-title {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1rem;
+      color: #e5e5e5;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .card-slider {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .42rem;
+      overflow: visible;
+      padding-bottom: 6.8rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: visible;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1), z-index 0s .35s;
+    }
+
+    .project-card:hover {
+      z-index: 50;
+      transform: translateY(-6px) scale(1.08);
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1), z-index 0s;
+    }
+
+    .card-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--bg-card);
+    }
+
+    .card-thumb-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter .35s;
+    }
+
+    .project-card:hover .card-thumb-inner {
+      filter: brightness(.55);
+    }
+
+    .thumb-art {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .9);
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 900;
+    }
+
+    .thumb-chatbot,
+    .modal-chatbot {
+      background: linear-gradient(135deg, #0d1117, #1a1f35, #0f4c75);
+    }
+
+    .thumb-history,
+    .modal-history {
+      background: linear-gradient(135deg, #071412, #0f3d32, #13a184);
+    }
+
+    .thumb-work,
+    .modal-work {
+      background: linear-gradient(135deg, #1a0a0a, #3f1a1a, #6b2020);
+    }
+
+    .thumb-certs,
+    .modal-certs {
+      background: linear-gradient(135deg, #102522, #195447, #00d2a8);
+    }
+
+    .card-label {
+      position: absolute;
+      left: .6rem;
+      bottom: .5rem;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.25;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, .9);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: .5rem;
+      left: .5rem;
+      padding: .15rem .4rem;
+      border-radius: 2px;
+      color: #071412;
+      background: var(--nf-red);
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .card-hover-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      background: var(--bg-modal);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s .15s;
+    }
+
+    .project-card:hover .card-hover-panel {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .panel-actions {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .75rem;
+    }
+
+    .panel-btn {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(255, 255, 255, .5);
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font-size: .85rem;
+      transition: border-color .2s, background .2s;
+    }
+
+    .panel-btn:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .panel-btn.play {
+      border-color: #fff;
+      background: #fff;
+      color: #000;
+    }
+
+    .panel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: .5rem;
+    }
+
+    .ptag {
+      color: rgba(255, 255, 255, .62);
+      font-size: .65rem;
+      font-weight: 800;
+    }
+
+    .ptag::after {
+      content: "·";
+      margin-left: .4rem;
+      color: rgba(255, 255, 255, .28);
+    }
+
+    .ptag:last-child::after {
+      display: none;
+    }
+
+    .panel-title {
+      margin-bottom: .25rem;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .panel-desc {
+      color: var(--text-muted);
+      font-size: .75rem;
+      line-height: 1.55;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding: 0 4%;
+      margin-bottom: 4rem;
+    }
+
+    .skill-pill {
+      padding: .45rem 1.1rem;
+      border: 1.5px solid rgba(255, 255, 255, .2);
+      border-radius: 3px;
+      color: rgba(255, 255, 255, .82);
+      background: transparent;
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: default;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+
+    .skill-pill:hover {
+      border-color: rgba(255, 255, 255, .72);
+      color: #fff;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .skill-pill.hot {
+      border-color: var(--nf-red);
+      color: var(--nf-red);
+    }
+
+    .exp-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .42rem;
+      padding: 0 4%;
+      margin-bottom: 4rem;
+    }
+
+    .exp-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-card);
+      transition: border-color .25s, transform .25s;
+    }
+
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--nf-red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .exp-card:hover {
+      border-color: rgba(255, 255, 255, .38);
+      transform: translateY(-3px);
+    }
+
+    .exp-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .exp-period {
+      margin-bottom: .6rem;
+      color: var(--nf-red);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .exp-role {
+      margin-bottom: .25rem;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .exp-org {
+      display: inline-flex;
+      width: max-content;
+      max-width: 100%;
+      margin-bottom: .75rem;
+      padding: .28rem .65rem;
+      border-radius: 3px;
+      background: var(--nf-red);
+      color: #071412;
+      font-size: .82rem;
+      font-weight: 900;
+    }
+
+    .exp-company-note {
+      margin-bottom: .9rem;
+      padding: .65rem .75rem;
+      border-left: 3px solid var(--nf-red);
+      border-radius: 3px;
+      background: rgba(255, 255, 255, .045);
+      color: rgba(255, 255, 255, .78);
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+    .exp-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: .9rem;
+      color: var(--text-muted);
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      top: .1rem;
+      color: var(--nf-red);
+      font-size: .65rem;
+    }
+
+    .award-wrap {
+      padding: 0 4%;
+      margin-bottom: 4rem;
+    }
+
+    .award-list {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-card);
+    }
+
+    .award-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: background .2s;
+    }
+
+    .award-row:last-child {
+      border-bottom: 0;
+    }
+
+    .award-row:hover {
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .award-num {
+      min-width: 3rem;
+      color: rgba(255, 255, 255, .08);
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .award-thumb {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    .award-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .award-title {
+      margin-bottom: .25rem;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .award-org {
+      color: var(--text-muted);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .award-org a {
+      color: var(--nf-red);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+    }
+
+    .award-side {
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .award-badge {
+      display: inline-flex;
+      padding: .2rem .55rem;
+      border-radius: 2px;
+      color: #071412;
+      background: var(--nf-red);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+
+    .award-date {
+      margin-top: .4rem;
+      color: var(--text-dim);
+      font-size: .72rem;
+    }
+
+    .contact-section {
+      padding: 4.6rem 4%;
+      border-top: 1px solid var(--border);
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, .8), transparent),
+        var(--bg-card);
+    }
+
+    .contact-label {
+      margin-bottom: 1rem;
+      color: var(--nf-red);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .contact-headline {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .accent-text {
+      color: var(--nf-red);
+    }
+
+    .contact-desc {
+      max-width: 560px;
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .65rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: rgba(255, 255, 255, .82);
+      background: rgba(255, 255, 255, .07);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--nf-red);
+      color: #fff;
+      background: rgba(0, 210, 168, .14);
+    }
+
+    .contact-btn {
+      padding: .8rem 2rem;
+      color: #071412;
+      background: var(--nf-red);
+    }
+
+    .contact-btn:hover {
+      background: var(--nf-red-hover);
+      color: #fff;
+      transform: scale(1.02);
+    }
+
+    footer {
+      padding: 2rem 4% 2.5rem;
+      color: var(--text-muted);
+      background: #050908;
+    }
+
+    .footer-logo {
+      margin-bottom: 1rem;
+      color: var(--nf-red);
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 900;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+      font-size: .82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      font-size: .76rem;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, .75);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      position: relative;
+      width: min(850px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 8px;
+      background: var(--bg-modal);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .9);
+      transform: scale(.9);
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .modal-overlay.open .modal {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(255, 255, 255, .4);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(20, 20, 20, .85);
+      font-size: 1rem;
+      transition: border-color .2s;
+    }
+
+    .modal-close:hover {
+      border-color: #fff;
+    }
+
+    .modal-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .modal-hero-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5.8rem;
+    }
+
+    .modal-art {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 5.5rem;
+      font-weight: 900;
+    }
+
+    .modal-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, var(--bg-modal) 0%, transparent 60%),
+        linear-gradient(to right, rgba(0, 0, 0, .42), transparent);
+    }
+
+    .modal-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 2.5rem 1.5rem;
+    }
+
+    .modal-title {
+      margin-bottom: .5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .8);
+    }
+
+    .modal-body {
+      padding: 1.75rem 2.5rem 2.5rem;
+    }
+
+    .modal-meta-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .m-match {
+      color: #46d369;
+      font-weight: 800;
+    }
+
+    .m-year,
+    .m-hd {
+      padding: .1rem .4rem;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 2px;
+      color: rgba(255, 255, 255, .68);
+      font-size: .8rem;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(190px, auto);
+      gap: 2rem;
+    }
+
+    .modal-desc {
+      color: rgba(255, 255, 255, .76);
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+
+    .modal-tag-row {
+      margin-bottom: .5rem;
+      font-size: .82rem;
+    }
+
+    .modal-tag-row span:first-child {
+      color: var(--text-dim);
+    }
+
+    .modal-tag-row span + span {
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .modal-more {
+      margin-top: 2.5rem;
+    }
+
+    .modal-more-title {
+      margin-bottom: 1rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .modal-more-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+    }
+
+    .modal-more-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-card);
+      transition: transform .2s;
+    }
+
+    .modal-more-card:hover {
+      transform: scale(1.03);
+    }
+
+    .modal-more-thumb {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, .04);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .modal-more-info {
+      padding: .6rem .75rem;
+    }
+
+    .modal-more-info p {
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .modal-more-info span {
+      color: var(--text-muted);
+      font-size: .7rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .landscape-stage {
+        padding: 10px;
+      }
+
+      .landscape-phone {
+        width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
+        border-width: 8px;
+        border-radius: 28px;
+      }
+
+      .landscape-phone::before {
+        display: none;
+      }
+
+      .landscape-screen {
+        inset: 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .billboard {
+        min-height: 500px;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+
+      .section-row,
+      .skill-pills,
+      .exp-cards,
+      .award-wrap,
+      .contact-section {
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+
+      .card-slider {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .exp-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .landscape-stage {
+        padding: 0;
+      }
+
+      .landscape-phone {
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .navbar {
+        padding: 0 16px;
+      }
+
+      .billboard {
+        min-height: 560px;
+        padding: 6.4rem 16px 2.5rem;
+      }
+
+      .billboard-top-badge {
+        left: 16px;
+      }
+
+      .card-slider,
+      .modal-more-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .award-row {
+        align-items: flex-start;
+        gap: .85rem;
+        padding: 1rem;
+      }
+
+      .award-thumb {
+        display: none;
+      }
+
+      .award-side {
+        display: none;
+      }
+
+      .modal-overlay {
+        padding: .75rem;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-body {
+        padding: 1.25rem 1.5rem 2rem;
+      }
+
+      .modal-hero-content {
+        padding: 1.25rem 1.5rem 1rem;
+      }
+
+      .contact-links {
+        display: grid;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- ══════ NAVBAR ══════ -->
-<nav class="navbar" id="navbar">
-  <div style="display:flex;align-items:center;gap:2.5rem">
-    <span class="nav-logo">PORTFLIX</span>
-    <div class="nav-links">
-      <a href="#" class="active">홈</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#skills">기술스택</a>
-      <a href="#experience">경력</a>
-      <a href="#awards">자격증/교육</a>
-      <a href="#contact">연락처</a>
-    </div>
-  </div>
-  <div class="nav-right">
-    <button class="nav-search" aria-label="검색">🔍</button>
-    <div class="nav-avatar">JW</div>
-  </div>
-</nav>
-
-<!-- ══════ HERO BILLBOARD ══════ -->
-<section class="billboard">
-  <div class="billboard-bg"></div>
-  <div class="billboard-code">const developer = {
-  name: "이재우",
-  role: "Web Developer",
-  skills: ["Java","ASP.NET","SAP/ABAP"],
-  arch: "실무 업무 시스템 개발",
-  passion: "다양한 현장 경험",
-  certifications: 3,
-  education: 2,
-  projects: 3,
-}
-
-function buildSomethingGreat() {
-  return developer.passion
-    + " × " + developer.arch;
-}</div>
-
-  <div class="billboard-top-badge">
-    <span class="nf-top10">TOP</span>
-    <span class="nf-rank-text">3조</span>
-  </div>
-
-  <div class="billboard-content">
-    <div class="billboard-genre">Web Developer</div>
-    <div class="billboard-name">이<span>재우</span></div>
-    <div class="billboard-subtitle">실무 프로젝트로 업무 흐름을 구현해 온 웹·업무시스템 개발자</div>
-    <div class="billboard-meta">
-      <span class="badge-year">2026</span>
-      <span class="badge-duration">프로젝트 3개</span>
-    </div>
-    <p class="billboard-desc">
-      HNIX와 성우하이텍에서 서비스와 업무 시스템 개발 경험을 쌓았습니다.
-      HNIX에서는 SmartHome/SmartIoT 미들웨어 기반 챗봇을 개발했고,
-      성우하이텍에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 업무를 담당했습니다.
-    </p>
-    <div class="billboard-actions">
-      <button class="btn-play" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span class="ico">▶</span> 연락하기
-      </button>
-      <button class="btn-info" onclick="openModal('main')">
-        <span>ⓘ</span> 상세 정보
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ══════ PROJECTS ROW ══════ -->
-<section style="padding-top:2rem" id="projects">
-  <div class="top10-divider fade-up">
-    <span class="top10-box">TOP 3</span>
-    <span class="top10-text">오늘의 주요 프로젝트</span>
-  </div>
-  <div class="section-row fade-up">
-    <div class="row-title">
-      선택된 프로젝트
-      <span class="explore">모두 보기 ›</span>
-    </div>
-    <div class="card-slider">
-
-
-      <!-- 카드 1 -->
-      <div class="project-card" onclick="openModal('p1')">
-        <div class="card-thumb">
-          <div class="card-thumb-inner">
-            <div class="thumb-art" style="background:linear-gradient(135deg,#0d1117,#1a1f35,#0f4c75)">🤖</div>
+  <div class="landscape-stage">
+    <section class="landscape-phone" aria-label="이재우 PORTFLIX 포트폴리오">
+      <main class="landscape-screen">
+        <nav class="navbar" id="navbar">
+          <div class="nav-left">
+            <span class="nav-logo">PORTFLIX</span>
+            <div class="nav-links">
+              <a class="active" href="#home">홈</a>
+              <a href="#projects">프로젝트</a>
+              <a href="#skills">기술스택</a>
+              <a href="#experience">경력</a>
+              <a href="#awards">자격증</a>
+              <a href="#contact">연락처</a>
+            </div>
           </div>
-          <span class="card-label">HN SmartHome ChatBot 2.0</span>
-          <span class="card-badge">GitHub</span>
-        </div>
-        <div class="card-hover-panel">
-          <div class="panel-actions">
-            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p1')">▶</button>
-            <button class="panel-btn panel-btn-add">＋</button>
-            <button class="panel-btn">👍</button>
-            <button class="panel-btn" style="margin-left:auto">⌄</button>
+          <div class="nav-right">
+            <div class="nav-avatar">JW</div>
           </div>
-          <div class="panel-tags">
-            <span class="ptag">SmartIoT</span>
-            <span class="ptag">OAuth/JWT</span>
-            <span class="ptag">Spring Boot</span>
+        </nav>
+
+        <section class="billboard" id="home">
+          <div class="billboard-bg"></div>
+          <div class="billboard-top-badge">
+            <span class="nf-top10">TOP</span>
+            <span class="nf-rank-text">2026 Portfolio</span>
           </div>
-          <div class="panel-title">HN SmartHome ChatBot 2.0</div>
-          <div class="panel-desc">SmartHome/SmartIoT 미들웨어를 통해 이기종 장치를 조회·제어하는 통합 챗봇</div>
-        </div>
-      </div>
 
-      <!-- 카드 2 -->
-      <div class="project-card" onclick="openModal('p2')">
-        <div class="card-thumb">
-          <div class="card-thumb-inner">
-            <div class="thumb-art" style="background:linear-gradient(135deg,#0a0a0a,#1a2f1a,#1d6a3a)">📊</div>
+          <div class="billboard-content">
+            <div class="billboard-genre">Business systems and web developer</div>
+            <h1 class="billboard-name">이<span>재우</span></h1>
+            <p class="billboard-subtitle">실무 프로젝트로 업무 흐름을 구현해 온 웹·업무시스템 개발자</p>
+            <div class="billboard-meta">
+              <span class="badge-year">2026</span>
+              <span class="badge-duration">프로젝트 3개</span>
+            </div>
+            <p class="billboard-desc">
+              HNIX에서는 SmartHome/SmartIoT 미들웨어 기반 챗봇을 개발했고,
+              성우하이텍에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 업무를 담당했습니다.
+            </p>
+            <div class="billboard-actions">
+              <button class="btn-play" type="button" data-scroll-target="projects">
+                <span>▶</span> 작업 보기
+              </button>
+              <button class="btn-info" type="button" data-modal-target="main">
+                <span>ⓘ</span> 상세 정보
+              </button>
+            </div>
           </div>
-          <span class="card-label">Web Visit History Visualization</span>
-        </div>
-        <div class="card-hover-panel">
-          <div class="panel-actions">
-            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p2')">▶</button>
-            <button class="panel-btn panel-btn-add">＋</button>
-            <button class="panel-btn">👍</button>
-            <button class="panel-btn" style="margin-left:auto">⌄</button>
+        </section>
+
+        <section id="projects">
+          <div class="top10-divider fade-up">
+            <span class="top10-box">TOP 4</span>
+            <span class="top10-text">오늘의 주요 콘텐츠</span>
           </div>
-          <div class="panel-tags">
-            <span class="ptag">JavaScript</span>
-            <span class="ptag">Visualization</span>
-            <span class="ptag">Browser History</span>
+
+          <div class="section-row fade-up">
+            <div class="row-title">선택된 프로젝트</div>
+            <div class="card-slider">
+              <article class="project-card" data-modal-target="p1">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-chatbot">🤖</div>
+                  </div>
+                  <span class="card-badge">GitHub</span>
+                  <span class="card-label">HN SmartHome ChatBot 2.0</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p1">▶</button>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">Java</span>
+                    <span class="ptag">Spring Boot</span>
+                    <span class="ptag">SmartIoT</span>
+                  </div>
+                  <div class="panel-title">HN SmartHome ChatBot 2.0</div>
+                  <p class="panel-desc">이기종 SmartHome 장치를 조회·제어하는 통합 챗봇 프로젝트</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p2">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-history">📊</div>
+                  </div>
+                  <span class="card-label">Web Visit History Visualization</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p2">▶</button>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">JavaScript</span>
+                    <span class="ptag">Visualization</span>
+                    <span class="ptag">History</span>
+                  </div>
+                  <div class="panel-title">Web Visit History Visualization</div>
+                  <p class="panel-desc">웹 방문 기록을 시각화해 사용 패턴을 한눈에 볼 수 있도록 만든 프로젝트</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p3">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-work">🏢</div>
+                  </div>
+                  <span class="card-label">성우하이텍 인도법인 오픈</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p3">▶</button>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">ASP.NET</span>
+                    <span class="ptag">Blazor</span>
+                    <span class="ptag">SAP/ABAP</span>
+                  </div>
+                  <div class="panel-title">인도법인 전자결재/목표이익 오픈</div>
+                  <p class="panel-desc">그룹웨어/e-Accounting/SAP FI 업무와 함께 진행한 실무 오픈 프로젝트</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p4">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-certs">🧩</div>
+                  </div>
+                  <span class="card-label">자격증 · 교육</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p4">▶</button>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">정보처리기사</span>
+                    <span class="ptag">ISTQB</span>
+                    <span class="ptag">KOSA</span>
+                  </div>
+                  <div class="panel-title">자격증 · 교육</div>
+                  <p class="panel-desc">실무 기반을 받쳐주는 자격과 오픈소스·MSA 교육 이력</p>
+                </div>
+              </article>
+            </div>
           </div>
-          <div class="panel-title">Web Visit History Visualization</div>
-          <div class="panel-desc">웹 방문 기록을 시각화해 사용 패턴을 한눈에 볼 수 있도록 만든 프로젝트</div>
-        </div>
-      </div>
+        </section>
 
-      <!-- 카드 3 -->
-      <div class="project-card" onclick="openModal('p3')">
-        <div class="card-thumb">
-          <div class="card-thumb-inner">
-            <div class="thumb-art" style="background:linear-gradient(135deg,#1a0a0a,#3f1a1a,#6b2020)">🏢</div>
+        <section id="skills">
+          <div class="section-row fade-up">
+            <div class="row-title">기술 스택</div>
           </div>
-          <span class="card-label">성우하이텍 인도법인 오픈 프로젝트</span>
-        </div>
-        <div class="card-hover-panel">
-          <div class="panel-actions">
-            <button class="panel-btn play" onclick="event.stopPropagation();openModal('p3')">▶</button>
-            <button class="panel-btn panel-btn-add">＋</button>
-            <button class="panel-btn">👍</button>
-            <button class="panel-btn" style="margin-left:auto">⌄</button>
+          <div class="skill-pills fade-up">
+            <span class="skill-pill hot">Java</span>
+            <span class="skill-pill hot">Spring Boot</span>
+            <span class="skill-pill hot">ASP.NET</span>
+            <span class="skill-pill hot">Blazor</span>
+            <span class="skill-pill hot">SAP</span>
+            <span class="skill-pill hot">ABAP</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Vue.js / Vuetify</span>
+            <span class="skill-pill">OAuth2 / JWT</span>
+            <span class="skill-pill">MyBatis</span>
+            <span class="skill-pill hot">Oracle</span>
+            <span class="skill-pill hot">MSSQL</span>
+            <span class="skill-pill">PostgreSQL / H2</span>
+            <span class="skill-pill">Groupware</span>
+            <span class="skill-pill">e-Accounting</span>
+            <span class="skill-pill">SAP FI</span>
+            <span class="skill-pill">Chromium</span>
+            <span class="skill-pill">Git/GitHub</span>
           </div>
-          <div class="panel-tags">
-            <span class="ptag">ASP.NET</span>
-            <span class="ptag">Blazor</span>
-            <span class="ptag">SAP/ABAP</span>
+        </section>
+
+        <section id="experience">
+          <div class="section-row fade-up">
+            <div class="row-title">경력 · Experience</div>
           </div>
-          <div class="panel-title">인도법인 전자결재/목표이익 오픈</div>
-          <div class="panel-desc">ASP.NET, Blazor, SAP, ABAP 기반으로 그룹웨어/e-Accounting/SAP FI 업무와 함께 진행한 인도법인 오픈 프로젝트</div>
+          <div class="exp-cards fade-up">
+            <article class="exp-card">
+              <div class="exp-period">2023.08 - 2023.12</div>
+              <div class="exp-role">융합기술연구소 인턴</div>
+              <div class="exp-org">HNIX</div>
+              <div class="exp-company-note">서비스 환경에서 인턴 프로젝트 수행</div>
+              <ul class="exp-bullets">
+                <li>SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0 개발</li>
+                <li>OAuth/JWT 사용자 식별, API 응답 및 대화 이력 DB 저장 흐름 구현</li>
+                <li>Adapter/Handler 구조로 이기종 SmartHome 장치 제어 복잡도 분리</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-period">2024.09 - 2026.04</div>
+              <div class="exp-role">그룹웨어/e-Accounting/SAP FI 개발자 · 매니저</div>
+              <div class="exp-org">성우하이텍 IT개발팀</div>
+              <div class="exp-company-note">제조업 기반 사내 업무 시스템 개발·운영 환경에서 근무</div>
+              <ul class="exp-bullets">
+                <li>ASP.NET, Blazor 기반 그룹웨어/e-Accounting 업무 시스템 개발</li>
+                <li>SAP FI 업무와 ABAP 기반 연계/개발 업무 수행</li>
+                <li>Oracle, MSSQL을 실무에서 사용했고 현재도 업무에서 활용 중</li>
+                <li>인도법인 전자결재/목표이익 오픈 프로젝트와 현업 요구사항 조율 담당</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="awards">
+          <div class="section-row fade-up">
+            <div class="row-title">자격증 · 교육</div>
+          </div>
+          <div class="award-wrap fade-up">
+            <div class="award-list">
+              <article class="award-row">
+                <div class="award-num">01</div>
+                <div class="award-thumb modal-chatbot">📘</div>
+                <div class="award-info">
+                  <div class="award-title">정보처리기사</div>
+                  <div class="award-org">국가기술자격</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">자격증</span>
+                  <div class="award-date">보유</div>
+                </div>
+              </article>
+
+              <article class="award-row">
+                <div class="award-num">02</div>
+                <div class="award-thumb modal-history">✅</div>
+                <div class="award-info">
+                  <div class="award-title">ISTQB CTFL</div>
+                  <div class="award-org">Software Testing Foundation Level</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">자격증</span>
+                  <div class="award-date">보유</div>
+                </div>
+              </article>
+
+              <article class="award-row">
+                <div class="award-num">03</div>
+                <div class="award-thumb modal-work">🛩️</div>
+                <div class="award-info">
+                  <div class="award-title">초경량비행장치조종자</div>
+                  <div class="award-org">초경량비행장치 조종 자격</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">자격증</span>
+                  <div class="award-date">보유</div>
+                </div>
+              </article>
+
+              <article class="award-row">
+                <div class="award-num">04</div>
+                <div class="award-thumb modal-certs">🌐</div>
+                <div class="award-info">
+                  <div class="award-title">오픈소스컨트리뷰션아카데미</div>
+                  <div class="award-org">
+                    Git 활용 및 Chromium 과정 수료 · Jaewoo Lee &lt;ljw5953@gmail.com&gt;
+                    <a href="https://chromium.googlesource.com/chromium/src/+/HEAD/AUTHORS" target="_blank" rel="noopener">Chromium AUTHORS에서 확인</a>
+                  </div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">교육/기여</span>
+                  <div class="award-date">2025</div>
+                </div>
+              </article>
+
+              <article class="award-row">
+                <div class="award-num">05</div>
+                <div class="award-thumb modal-certs">🧩</div>
+                <div class="award-info">
+                  <div class="award-title">KOSA MSA기반 fullstack 개발자 양성과정</div>
+                  <div class="award-org">MSA 기반 fullstack 개발자 과정 수강 중</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">교육</span>
+                  <div class="award-date">2026.04 - 현재</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-section fade-up" id="contact">
+          <div class="contact-label">Contact</div>
+          <div class="contact-headline">같이 만들어요,<br><span class="accent-text">지금 바로.</span></div>
+          <p class="contact-desc">
+            새로운 기회와 협업에 항상 열려 있습니다. 업무 시스템, 웹 서비스, 포트폴리오 피드백까지 편하게 연락 주세요.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:ljw5953@gmail.com"><span>✉</span> ljw5953@gmail.com</a>
+            <a class="contact-link" href="tel:01091465961"><span>☎</span> 010-9146-5961</a>
+            <a class="contact-link" href="https://github.com/gugukorn" target="_blank" rel="noopener"><span>⌘</span> github.com/gugukorn</a>
+          </div>
+          <a class="contact-btn" href="mailto:ljw5953@gmail.com">▶ Email</a>
+        </section>
+
+        <footer>
+          <div class="footer-logo">PORTFLIX</div>
+          <div class="footer-links">
+            <a href="https://github.com/gugukorn" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:ljw5953@gmail.com">Email</a>
+          </div>
+          <div class="footer-copy">© 2026 이재우. Built with plain HTML, CSS, and JavaScript.</div>
+        </footer>
+      </main>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="닫기">✕</button>
+      <div class="modal-hero">
+        <div class="modal-hero-bg" id="modalBg"></div>
+        <div class="modal-hero-overlay"></div>
+        <div class="modal-hero-content">
+          <div class="modal-title" id="modalTitle"></div>
+          <div class="modal-actions">
+            <a class="btn-play modal-link" href="#" id="modalLink" target="_blank" rel="noopener">▶ 자세히 보기</a>
+          </div>
         </div>
       </div>
-    </div><!-- /card-slider -->
-  </div>
-</section>
-
-<!-- ══════ SKILLS ROW ══════ -->
-<section id="skills" style="padding-top:1rem">
-  <div class="section-row fade-up">
-    <div class="row-title">기술 스택</div>
-  </div>
-  <div class="skill-pills fade-up">
-    <span class="skill-pill hot">Java</span>
-    <span class="skill-pill hot">Spring Boot</span>
-    <span class="skill-pill hot">ASP.NET</span>
-    <span class="skill-pill hot">Blazor</span>
-    <span class="skill-pill hot">SAP</span>
-    <span class="skill-pill hot">ABAP</span>
-    <span class="skill-pill">JavaScript</span>
-    <span class="skill-pill">Vue.js / Vuetify</span>
-    <span class="skill-pill hot">SmartIoT Middleware</span>
-    <span class="skill-pill">OAuth2 / JWT</span>
-    <span class="skill-pill">MyBatis</span>
-    <span class="skill-pill">PostgreSQL / H2</span>
-    <span class="skill-pill">Groupware</span>
-    <span class="skill-pill">e-Accounting</span>
-    <span class="skill-pill">SAP FI</span>
-    <span class="skill-pill hot">MSA</span>
-    <span class="skill-pill">Chromium</span>
-    <span class="skill-pill">Git/GitHub</span>
-  </div>
-</section>
-
-
-<!-- ══════ EXPERIENCE ROW ══════ -->
-<section id="experience">
-  <div class="section-row fade-up">
-    <div class="row-title">경력</div>
-  </div>
-  <div class="exp-cards fade-up">
-
-    <div class="exp-card">
-      <div class="exp-period">2023.08 — 2023.12</div>
-      <div class="exp-role">융합기술연구소 인턴</div>
-      <div class="exp-org">HNIX</div>
-      <div class="exp-company-note">서비스 환경에서 인턴 프로젝트 수행</div>
-      <ul class="exp-bullets">
-        <li>SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0 개발</li>
-        <li>OAuth/JWT 사용자 식별, API 응답 및 대화 이력 DB 저장 흐름 구현</li>
-        <li>Adapter/Handler 구조로 이기종 SmartHome 장치 제어 복잡도 분리</li>
-      </ul>
-    </div>
-
-    <div class="exp-card">
-      <div class="exp-period">2024.09 — 2026.04</div>
-      <div class="exp-role">그룹웨어/e-Accounting/SAP FI 개발자 · 매니저</div>
-      <div class="exp-org">성우하이텍 IT개발팀</div>
-      <div class="exp-company-note">제조업 기반 사내 업무 시스템 개발·운영 환경에서 근무</div>
-      <ul class="exp-bullets">
-        <li>ASP.NET, Blazor 기반 그룹웨어/e-Accounting 업무 시스템 개발</li>
-        <li>SAP FI 업무와 ABAP 기반 연계/개발 업무 수행</li>
-        <li>인도법인 전자결재/목표이익 오픈 프로젝트와 현업 요구사항 조율 담당</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-<!-- ══════ CERTIFICATIONS & EDUCATION ROW ══════ -->
-<section id="awards">
-  <div class="section-row fade-up">
-    <div class="row-title">자격증 · 교육</div>
-  </div>
-  <div style="padding:0 4%;margin-bottom:4rem" class="fade-up">
-    <div style="background:var(--bg-card);border-radius:6px;border:1px solid var(--border);overflow:hidden">
-
-      <div class="award-row">
-        <div class="award-num">01</div>
-        <div class="award-thumb" style="background:linear-gradient(135deg,#1a1f35,#0f4c75)">📘</div>
-        <div class="award-info">
-          <div class="award-title">정보처리기사</div>
-          <div class="award-org">국가기술자격</div>
+      <div class="modal-body">
+        <div class="modal-meta-row">
+          <span class="m-match" id="modalMatch"></span>
+          <span class="m-year" id="modalYear"></span>
+          <span class="m-hd" id="modalType">프로젝트</span>
         </div>
-        <div style="text-align:right">
-          <div class="award-badge">자격증</div>
-          <div class="award-date" style="margin-top:.4rem">보유</div>
+        <div class="modal-grid">
+          <div class="modal-desc" id="modalDesc"></div>
+          <div class="modal-tags-section" id="modalTags"></div>
         </div>
-      </div>
-
-      <div class="award-row">
-        <div class="award-num">02</div>
-        <div class="award-thumb" style="background:linear-gradient(135deg,#1a2f1a,#0a4a2a)">✅</div>
-        <div class="award-info">
-          <div class="award-title">ISTQB CTFL</div>
-          <div class="award-org">Software Testing Foundation Level</div>
+        <div class="modal-more">
+          <div class="modal-more-title">함께 시청된 콘텐츠</div>
+          <div class="modal-more-grid" id="modalMoreGrid"></div>
         </div>
-        <div style="text-align:right">
-          <div class="award-badge">자격증</div>
-          <div class="award-date" style="margin-top:.4rem">보유</div>
-        </div>
-      </div>
-
-      <div class="award-row">
-        <div class="award-num">03</div>
-        <div class="award-thumb" style="background:linear-gradient(135deg,#2a1a0a,#6b3a10)">🛩️</div>
-        <div class="award-info">
-          <div class="award-title">초경량비행장치조종자</div>
-          <div class="award-org">초경량비행장치 조종 자격</div>
-        </div>
-        <div style="text-align:right">
-          <div class="award-badge">자격증</div>
-          <div class="award-date" style="margin-top:.4rem">보유</div>
-        </div>
-      </div>
-
-      <div class="award-row">
-        <div class="award-num">04</div>
-        <div class="award-thumb" style="background:linear-gradient(135deg,#0d1117,#2d4a8f)">🌐</div>
-        <div class="award-info">
-          <div class="award-title">오픈소스컨트리뷰션아카데미</div>
-          <div class="award-org">Git 활용 및 Chromium 과정 수료 · Jaewoo Lee &lt;ljw5953@gmail.com&gt; <a class="award-link" href="https://chromium.googlesource.com/chromium/src/+/HEAD/AUTHORS" target="_blank" rel="noopener">Chromium AUTHORS에서 확인</a></div>
-        </div>
-        <div style="text-align:right">
-          <div class="award-badge">교육/기여</div>
-          <div class="award-date" style="margin-top:.4rem">2025</div>
-        </div>
-      </div>
-
-      <div class="award-row">
-        <div class="award-num">05</div>
-        <div class="award-thumb" style="background:linear-gradient(135deg,#102522,#00D2A8)">🧩</div>
-        <div class="award-info">
-          <div class="award-title">KOSA MSA기반 fullstack 개발자 양성과정</div>
-          <div class="award-org">MSA 기반 fullstack 개발자 과정 수강 중</div>
-        </div>
-        <div style="text-align:right">
-          <div class="award-badge">교육</div>
-          <div class="award-date" style="margin-top:.4rem">2026.04 — 현재</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════ CONTACT ══════ -->
-<section class="contact-section fade-up" id="contact">
-  <div class="contact-label">Contact</div>
-  <div class="contact-headline">같이 만들어요,<br><span style="color:var(--nf-red)">지금 바로.</span></div>
-  <p class="contact-desc">
-    새로운 기회와 협업에 항상 열려 있습니다.<br>
-    편하게 연락 주세요 :)
-  </p>
-  <div class="contact-links">
-    <a href="mailto:ljw5953@gmail.com" class="contact-link">
-      <span class="ico">📧</span> ljw5953@gmail.com
-    </a>
-    <a href="#contact" class="contact-link">
-      <span class="ico">📱</span> 010-9146-5961
-    </a>
-    <a href="https://github.com/gugukorn" target="_blank" rel="noopener" class="contact-link">
-      <span class="ico">🐙</span> github.com/gugukorn
-    </a>
-  </div>
-  <a href="mailto:ljw5953@gmail.com" class="contact-btn">
-    ▶ 메일 보내기
-  </a>
-</section>
-
-<!-- ══════ FOOTER ══════ -->
-<footer>
-  <div class="footer-logo">PORTFLIX</div>
-  <div class="footer-links">
-    <a href="https://github.com/gugukorn" target="_blank" rel="noopener">GitHub</a>
-    <a href="mailto:ljw5953@gmail.com">Email</a>
-  </div>
-  <div class="footer-copy">© 2026 이재우. All rights reserved. Made with ❤️ & Netflix vibes.</div>
-</footer>
-
-<!-- ══════ MODAL ══════ -->
-<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
-  <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-hero" id="modalHero">
-      <div class="modal-hero-bg" id="modalBg"></div>
-      <div class="modal-hero-overlay"></div>
-      <div class="modal-hero-content">
-        <div class="modal-title" id="modalTitle"></div>
-        <div class="modal-actions">
-          <button class="btn-play" id="modalLinkBtn" style="font-size:.88rem;padding:.6rem 1.4rem">▶ 자세히 보기</button>
-        </div>
-      </div>
-    </div>
-    <div class="modal-body">
-      <div class="modal-meta-row">
-        <span class="m-match" id="modalMatch"></span>
-        <span class="m-year" id="modalYear"></span>
-        <span class="m-hd">프로젝트</span>
-      </div>
-      <div class="modal-grid">
-        <div class="modal-desc" id="modalDesc"></div>
-        <div class="modal-tags-section" id="modalTags"></div>
-      </div>
-      <div class="modal-more" id="modalMore">
-        <div class="modal-more-title">함께 시청된 콘텐츠</div>
-        <div class="modal-more-grid" id="modalMoreGrid"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-/* ── NAVBAR SCROLL ── */
-const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
-  navbar.classList.toggle('solid',window.scrollY>80);
-},{passive:true});
-
-/* ── FADE-UP OBSERVER ── */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.1});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-
-/* ── MODAL DATA ── */
-const modals={
-  main:{
-    title:'이재우',
-    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a1a2e,#0f3460);display:flex;align-items:center;justify-content:center;font-size:5rem">👨‍💻</div>',
-    match:'98% 일치',year:'2026',
-    url:'https://github.com/gugukorn',
-    desc:'HNIX 융합기술연구소 인턴으로 SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0을 개발했고, 성우하이텍 IT개발팀에서는 2024년 9월부터 2026년 4월까지 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무했습니다. 서로 다른 도메인의 실무 환경을 경험하며 기능 구현과 운영 흐름을 함께 익혀 온 점이 강점입니다.',
-    tags:'<div class="modal-tag-row"><span>경력: </span><span>HNIX 인턴, 성우하이텍 매니저</span></div><div class="modal-tag-row"><span>업무: </span><span>SmartHome ChatBot, ASP.NET, Blazor, SAP/ABAP</span></div><div class="modal-tag-row"><span>자격증: </span><span>정보처리기사, ISTQB CTFL, 초경량비행장치조종자</span></div><div class="modal-tag-row"><span>교육: </span><span>오픈소스컨트리뷰션아카데미, KOSA MSA fullstack</span></div><div class="modal-tag-row"><span>GitHub: </span><span>github.com/gugukorn</span></div>',
-    more:[
-      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
-      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
-      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
-    ]
-  },
-  p1:{
-    title:'HN SmartHome ChatBot 2.0',
-    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1117,#1a1f35,#0f4c75);display:flex;align-items:center;justify-content:center;font-size:5rem">🤖</div>',
-    match:'인턴 3차 프로젝트',year:'2023',
-    url:'https://github.com/gugukorn/HNIX-Simple-ChatBot',
-    desc:'HNIX 장기현장실습 중 진행한 HN SmartHome ChatBot 2.0 프로젝트입니다. 사용자가 SmartHome API나 장치별 제어 프로토콜을 직접 알지 못해도 챗봇으로 이기종 SmartHome 장치를 조회하고 제어할 수 있도록 만들었습니다. 1차 챗봇의 OAuth 로그인, Access Token 처리, API 응답 DB 저장 구조와 2차 SmartIoT Adapter/가상장치 제어 경험을 통합하고, 자연어 처리, OAuth 사용자 식별, 에러 처리, UI/UX 개선, 코드 리팩토링을 추가했습니다.',
-    tags:'<div class="modal-tag-row"><span>회사: </span><span>HNIX 융합기술연구소</span></div><div class="modal-tag-row"><span>기간: </span><span>2023.08 — 2023.12</span></div><div class="modal-tag-row"><span>구조: </span><span>SmartHome/SmartIoT 미들웨어, Adapter/Handler, 이기종 장치 제어</span></div><div class="modal-tag-row"><span>기능: </span><span>HNID OAuth/JWT, 자연어 의도 해석, 대화 이력 DB 저장, mock local 프로필</span></div><div class="modal-tag-row"><span>기술: </span><span>Java 8, Spring Boot 2.7, WebClient, MyBatis, PostgreSQL, H2, Vue/Vuetify</span></div>',
-    more:[
-      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
-      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
-      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
-    ]
-  },
-  p2:{
-    title:'Web Visit History Visualization',
-    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a2f1a,#1d6a3a);display:flex;align-items:center;justify-content:center;font-size:5rem">📊</div>',
-    match:'GitHub 공개',year:'2026',
-    url:'https://github.com/gugukorn/WebVisitHistoryVisualization',
-    desc:'WebVisitHistoryVisualization은 웹 방문 기록 데이터를 보기 쉽게 시각화하는 프로젝트입니다. 방문 기록을 단순 목록이 아니라 패턴을 파악할 수 있는 형태로 정리해 사용자의 웹 이용 흐름을 더 직관적으로 확인할 수 있게 했습니다.',
-    tags:'<div class="modal-tag-row"><span>저장소: </span><span>github.com/gugukorn/WebVisitHistoryVisualization</span></div><div class="modal-tag-row"><span>유형: </span><span>방문 기록 시각화</span></div><div class="modal-tag-row"><span>핵심: </span><span>데이터 가공, 시각화 UI, 사용자 패턴 분석</span></div>',
-    more:[
-      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
-      {emoji:'🏢',title:'성우하이텍 인도법인 오픈',sub:'ASP.NET · Blazor · SAP/ABAP'},
-      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
-    ]
-  },
-  p3:{
-    title:'성우하이텍 인도법인 전자결재/목표이익 오픈',
-    bg:'<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a0a,#3f1a1a,#6b2020);display:flex;align-items:center;justify-content:center;font-size:5rem">🏢</div>',
-    match:'실무 오픈',year:'2024-2026',
-    url:null,
-    desc:'성우하이텍 IT개발팀에서 2024년 9월부터 2026년 4월까지 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무하며 진행한 인도법인 전자결재/목표이익 오픈 프로젝트입니다. 법인 업무 흐름에 맞춰 결재 프로세스와 목표이익 관리 기능이 실제 운영 환경에서 사용할 수 있도록 정리하고 오픈 대응을 수행했습니다.',
-    tags:'<div class="modal-tag-row"><span>소속: </span><span>성우하이텍 IT개발팀</span></div><div class="modal-tag-row"><span>기간: </span><span>2024.09 — 2026.04</span></div><div class="modal-tag-row"><span>직무: </span><span>그룹웨어/e-Accounting/SAP FI 개발자 · 매니저</span></div><div class="modal-tag-row"><span>기술: </span><span>ASP.NET, Blazor, SAP, ABAP</span></div><div class="modal-tag-row"><span>업무: </span><span>인도법인 전자결재, 목표이익, 오픈 대응</span></div>',
-    more:[
-      {emoji:'🤖',title:'HN SmartHome ChatBot 2.0',sub:'2023 · SmartIoT · Spring Boot'},
-      {emoji:'📊',title:'Web Visit History Visualization',sub:'GitHub · Visualization'},
-      {emoji:'👨‍💻',title:'이재우',sub:'Web Developer'},
-    ]
-  }
-};
-
-function openModal(id){
-  const d=modals[id];if(!d)return;
-  document.getElementById('modalBg').innerHTML=d.bg;
-  document.getElementById('modalTitle').textContent=d.title;
-  document.getElementById('modalMatch').textContent=d.match;
-  document.getElementById('modalYear').textContent=d.year;
-  document.getElementById('modalDesc').textContent=d.desc;
-  document.getElementById('modalTags').innerHTML=d.tags;
-  const linkBtn=document.getElementById('modalLinkBtn');
-  if(d.url){
-    linkBtn.style.display='inline-flex';
-    linkBtn.textContent=id==='main'?'▶ GitHub 보기':'▶ 자세히 보기';
-    linkBtn.onclick=()=>window.open(d.url,'_blank','noopener');
-  }else{
-    linkBtn.style.display='none';
-    linkBtn.onclick=null;
-  }
-  const mg=document.getElementById('modalMoreGrid');
-  mg.innerHTML=d.more.map(m=>`
-    <div class="modal-more-card">
-      <div class="modal-more-thumb">${m.emoji}</div>
-      <div class="modal-more-info">
-        <p>${m.title}</p>
-        <span>${m.sub}</span>
       </div>
     </div>
-  `).join('');
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-function handleOverlayClick(e){
-  if(e.target===document.getElementById('modalOverlay'))closeModal();
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-</script>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalLink = document.getElementById("modalLink");
+    const screen = document.querySelector(".landscape-screen");
+
+    if (screen && navbar) {
+      screen.addEventListener("scroll", () => {
+        navbar.classList.toggle("solid", screen.scrollTop > 80);
+      }, { passive: true });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      root: screen || null,
+      threshold: 0.1
+    });
+
+    document.querySelectorAll(".fade-up").forEach((element) => {
+      observer.observe(element);
+    });
+
+    document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scrollTarget);
+        if (!target || !screen) return;
+
+        screen.scrollTo({
+          top: target.offsetTop - 68,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target || !screen) return;
+
+        event.preventDefault();
+        document.querySelectorAll(".nav-links a").forEach((item) => {
+          item.classList.toggle("active", item === link);
+        });
+        screen.scrollTo({
+          top: target.offsetTop - 68,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    if (screen) {
+      let dragScroll = null;
+
+      screen.addEventListener("pointerdown", (event) => {
+        const interactiveTarget = event.target.closest("a, button, input, textarea, select, .project-card, .modal");
+        if (interactiveTarget) return;
+
+        dragScroll = {
+          pointerId: event.pointerId,
+          startY: event.clientY,
+          startTop: screen.scrollTop
+        };
+        screen.classList.add("drag-scrolling");
+        screen.setPointerCapture?.(event.pointerId);
+      });
+
+      screen.addEventListener("pointermove", (event) => {
+        if (!dragScroll || dragScroll.pointerId !== event.pointerId) return;
+
+        event.preventDefault();
+        screen.scrollTop = dragScroll.startTop + dragScroll.startY - event.clientY;
+      });
+
+      screen.addEventListener("pointerup", (event) => {
+        if (!dragScroll || dragScroll.pointerId !== event.pointerId) return;
+
+        dragScroll = null;
+        screen.classList.remove("drag-scrolling");
+        screen.releasePointerCapture?.(event.pointerId);
+      });
+
+      screen.addEventListener("pointercancel", () => {
+        dragScroll = null;
+        screen.classList.remove("drag-scrolling");
+      });
+    }
+
+    const moreItems = [
+      { glyph: "🤖", title: "HN SmartHome ChatBot 2.0", sub: "Java / Spring Boot" },
+      { glyph: "📊", title: "Web Visit History Visualization", sub: "JavaScript / Visualization" },
+      { glyph: "🏢", title: "성우하이텍 인도법인 오픈", sub: "ASP.NET / Blazor / SAP" }
+    ];
+
+    const modals = {
+      main: {
+        title: "이재우",
+        bg: '<div class="modal-art modal-certs">👨‍💻</div>',
+        match: "98% 일치",
+        year: "2026",
+        type: "소개",
+        link: "https://github.com/gugukorn",
+        desc: "HNIX 융합기술연구소 인턴으로 SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0을 개발했고, 성우하이텍 IT개발팀에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무했습니다. 서로 다른 도메인의 실무 환경을 경험하며 기능 구현과 운영 흐름을 함께 익혀 온 점이 강점입니다.",
+        tags: '<div class="modal-tag-row"><span>경력: </span><span>HNIX 인턴, 성우하이텍 매니저</span></div><div class="modal-tag-row"><span>업무: </span><span>SmartHome ChatBot, ASP.NET, Blazor, SAP/ABAP</span></div><div class="modal-tag-row"><span>DB: </span><span>Oracle, MSSQL, PostgreSQL, H2</span></div><div class="modal-tag-row"><span>GitHub: </span><span>github.com/gugukorn</span></div>',
+        more: moreItems
+      },
+      p1: {
+        title: "HN SmartHome ChatBot 2.0",
+        bg: '<div class="modal-art modal-chatbot">🤖</div>',
+        match: "인턴 3차 프로젝트",
+        year: "2023",
+        type: "프로젝트",
+        link: "https://github.com/gugukorn/HNIX-Simple-ChatBot",
+        desc: "HNIX 장기현장실습 중 진행한 프로젝트입니다. 사용자가 SmartHome API나 장치별 제어 프로토콜을 직접 알지 못해도 챗봇으로 이기종 SmartHome 장치를 조회하고 제어할 수 있도록 만들었습니다. OAuth 로그인, Access Token 처리, API 응답 DB 저장 구조, Adapter/Handler 구조, 자연어 의도 해석, UI/UX 개선을 함께 다뤘습니다.",
+        tags: '<div class="modal-tag-row"><span>회사: </span><span>HNIX 융합기술연구소</span></div><div class="modal-tag-row"><span>기간: </span><span>2023.08 - 2023.12</span></div><div class="modal-tag-row"><span>기술: </span><span>Java 8, Spring Boot 2.7, WebClient, MyBatis, PostgreSQL, H2, Vue/Vuetify</span></div><div class="modal-tag-row"><span>핵심: </span><span>SmartHome/SmartIoT 미들웨어, OAuth/JWT, Adapter/Handler</span></div>',
+        more: moreItems
+      },
+      p2: {
+        title: "Web Visit History Visualization",
+        bg: '<div class="modal-art modal-history">📊</div>',
+        match: "GitHub 공개",
+        year: "2026",
+        type: "프로젝트",
+        link: "https://github.com/gugukorn/WebVisitHistoryVisualization",
+        desc: "웹 방문 기록 데이터를 보기 쉽게 시각화하는 프로젝트입니다. 방문 기록을 단순 목록이 아니라 패턴을 파악할 수 있는 형태로 정리해 사용자의 웹 이용 흐름을 더 직관적으로 확인할 수 있게 했습니다.",
+        tags: '<div class="modal-tag-row"><span>저장소: </span><span>github.com/gugukorn/WebVisitHistoryVisualization</span></div><div class="modal-tag-row"><span>유형: </span><span>방문 기록 시각화</span></div><div class="modal-tag-row"><span>핵심: </span><span>데이터 가공, 시각화 UI, 사용자 패턴 분석</span></div>',
+        more: moreItems
+      },
+      p3: {
+        title: "성우하이텍 인도법인 전자결재/목표이익 오픈",
+        bg: '<div class="modal-art modal-work">🏢</div>',
+        match: "실무 오픈",
+        year: "2024-2026",
+        type: "실무",
+        link: "",
+        desc: "성우하이텍 IT개발팀에서 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무하며 진행한 인도법인 전자결재/목표이익 오픈 프로젝트입니다. 법인 업무 흐름에 맞춰 결재 프로세스와 목표이익 관리 기능이 실제 운영 환경에서 사용할 수 있도록 정리하고 오픈 대응을 수행했습니다.",
+        tags: '<div class="modal-tag-row"><span>소속: </span><span>성우하이텍 IT개발팀</span></div><div class="modal-tag-row"><span>기간: </span><span>2024.09 - 2026.04</span></div><div class="modal-tag-row"><span>기술: </span><span>ASP.NET, Blazor, SAP, ABAP, Oracle, MSSQL</span></div><div class="modal-tag-row"><span>업무: </span><span>그룹웨어, e-Accounting, SAP FI, 인도법인 오픈 대응</span></div>',
+        more: moreItems
+      },
+      p4: {
+        title: "자격증 · 교육",
+        bg: '<div class="modal-art modal-certs">🧩</div>',
+        match: "학습 이력",
+        year: "2026",
+        type: "자격증",
+        link: "https://chromium.googlesource.com/chromium/src/+/HEAD/AUTHORS",
+        desc: "정보처리기사, ISTQB CTFL, 초경량비행장치조종자를 보유하고 있습니다. 오픈소스컨트리뷰션아카데미에서 Git 활용 및 Chromium 과정을 수료했고, 현재 KOSA MSA기반 fullstack 개발자 양성과정을 수강 중입니다.",
+        tags: '<div class="modal-tag-row"><span>자격증: </span><span>정보처리기사, ISTQB CTFL, 초경량비행장치조종자</span></div><div class="modal-tag-row"><span>교육: </span><span>오픈소스컨트리뷰션아카데미, KOSA MSA fullstack</span></div><div class="modal-tag-row"><span>기여 표기: </span><span>Jaewoo Lee &lt;ljw5953@gmail.com&gt;</span></div>',
+        more: moreItems
+      }
+    };
+
+    function openModal(id) {
+      const data = modals[id];
+      if (!data) return;
+
+      document.getElementById("modalBg").innerHTML = data.bg;
+      document.getElementById("modalTitle").textContent = data.title;
+      document.getElementById("modalMatch").textContent = data.match;
+      document.getElementById("modalYear").textContent = data.year;
+      document.getElementById("modalType").textContent = data.type || "프로젝트";
+      document.getElementById("modalDesc").textContent = data.desc;
+      document.getElementById("modalTags").innerHTML = data.tags;
+
+      modalLink.href = data.link || "#";
+      modalLink.style.display = data.link ? "inline-flex" : "none";
+
+      document.getElementById("modalMoreGrid").innerHTML = data.more.map((item) => (
+        '<div class="modal-more-card"><div class="modal-more-thumb">' + item.glyph
+        + '</div><div class="modal-more-info"><p>' + item.title + '</p><span>' + item.sub
+        + '</span></div></div>'
+      )).join("");
+
+      modalOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-modal-target]").forEach((element) => {
+      element.addEventListener("click", (event) => {
+        if (element.classList.contains("panel-btn")) {
+          event.stopPropagation();
+        }
+        openModal(element.dataset.modalTarget);
+      });
+    });
+
+    modalOverlay.addEventListener("click", (event) => {
+      if (event.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.querySelector(".modal-close").addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
