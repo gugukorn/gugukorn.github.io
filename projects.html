@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이재우 | Projects</title>
+  <style>
+    @import "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
+    body { margin: 0; background: #071412; color: #fff; font-family: Pretendard, system-ui, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 44px 0 64px; }
+    .nav { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 44px; }
+    .logo { color: #00d2a8; font-weight: 900; font-style: italic; text-decoration: none; }
+    .nav a:not(.logo) { color: #9ccbc2; text-decoration: none; font-weight: 700; }
+    .hero { padding: 36px; border: 1px solid #1f4d46; border-radius: 22px; background: linear-gradient(135deg, #0d1e1b, #102522); }
+    .eyebrow { color: #00d2a8; font-size: .82rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 12px 0 14px; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -.05em; }
+    .hero p, .desc, .note { color: #9ccbc2; }
+    h2 { margin-top: 48px; font-size: 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { padding: 24px; border: 1px solid #1f4d46; border-radius: 18px; background: #0d1e1b; }
+    .card h3 { margin: 0 0 10px; font-size: 1.25rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+    .tag { padding: 3px 8px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; color: #d8fff7; font-size: .76rem; font-weight: 800; }
+    .btn { display: inline-flex; margin-top: 10px; padding: 8px 13px; border-radius: 999px; background: #00d2a8; color: #071412; font-weight: 900; text-decoration: none; }
+    li { color: rgba(255,255,255,.82); margin: 4px 0; }
+    footer { margin-top: 48px; padding-top: 22px; border-top: 1px solid #1f4d46; color: #6fa59b; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .hero { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <a class="logo" href="./">PORTFLIX</a>
+      <a href="https://github.com/gugukorn" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">Projects Portfolio</div>
+      <h1>ERP 실무 경험과 Java·Spring 기반 프로젝트를 함께 쌓아온 개발자</h1>
+      <p>
+        성우하이텍 IT개발팀에서 SAP FI, 그룹웨어, e-Accounting 등 사내 업무 시스템을 경험했고,
+        현재는 현대퓨처넷 채용예정자 교육 과정에서 Java, Spring Boot, Oracle, RabbitMQ, MSA 기반 프로젝트를 수행하고 있습니다.
+      </p>
+    </section>
+
+    <h2>실무 및 교육 이력</h2>
+    <section class="grid">
+      <article class="card">
+        <h3>성우하이텍 IT개발팀</h3>
+        <p class="desc">2024.09 - 2026.04 · ERP/사내 시스템 개발</p>
+        <ul>
+          <li>SAP ERP(FI), ABAP 기반 재무 업무 프로그램 개발 및 개선</li>
+          <li>C#, ASP.NET Blazor, MSSQL 기반 그룹웨어/e-Accounting 개발 및 유지보수</li>
+          <li>현업 요구사항 분석, 업무 프로세스 이해, 데이터 정확성 중심의 실무 경험</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>현대퓨처넷 채용예정자 교육</h3>
+        <p class="desc">2026.04 - 현재 · MSA 기반 Full Stack 개발자 과정</p>
+        <ul>
+          <li>Java, Spring Boot, Oracle, MyBatis, RabbitMQ, Security, JWT 학습 및 프로젝트 적용</li>
+          <li>성우하이텍 퇴사 후 백엔드 역량 강화를 위해 도전 중인 과정</li>
+          <li>팀 프로젝트를 통해 Git Flow, PR, 코드 리뷰 기반 협업 경험</li>
+        </ul>
+      </article>
+    </section>
+
+    <h2>프로젝트</h2>
+    <section class="grid">
+      <article class="card">
+        <h3>예약 메일 발송 시스템</h3>
+        <p class="desc">인증, 예약, 스케줄러, 메일 워커 서비스를 분리한 MSA 기반 프로젝트</p>
+        <div class="meta"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">RabbitMQ</span><span class="tag">Oracle</span><span class="tag">JWT</span></div>
+        <ul>
+          <li>예약 시간이 되면 스케줄러가 RabbitMQ로 이벤트를 발행하는 구조 설계</li>
+          <li>메일 워커가 메시지를 소비해 메일을 발송하는 비동기 처리 흐름 구현</li>
+          <li>서비스 책임 분리와 장애 영향을 줄이는 구조 학습</li>
+        </ul>
+        <a class="btn" href="https://github.com/jhj2075/kosa-study-mail-project" target="_blank" rel="noopener">GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>hi-eating</h3>
+        <p class="desc">건강식품 및 식단 추천을 주제로 한 Spring Boot 기반 웹 서비스</p>
+        <div class="meta"><span class="tag">Spring Boot</span><span class="tag">Spring AI</span><span class="tag">Ollama</span><span class="tag">MyBatis</span><span class="tag">Oracle</span></div>
+        <ul>
+          <li>상품·카테고리 데이터 기반 백엔드 기능 구현</li>
+          <li>Spring AI와 Ollama를 활용한 추천 기능 구조 검토</li>
+          <li>Oracle DB와 MyBatis 기반 데이터 처리 경험</li>
+        </ul>
+        <a class="btn" href="https://github.com/kosa-hieating/hi-eating" target="_blank" rel="noopener">GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>hi-eating-crawler</h3>
+        <p class="desc">hi-eating 초기 상품 데이터를 만들기 위한 Java Maven 기반 크롤러</p>
+        <div class="meta"><span class="tag">Java</span><span class="tag">Maven</span><span class="tag">Oracle</span><span class="tag">Crawler</span></div>
+        <ul>
+          <li>외부 상품 목록 API를 호출해 카테고리, 상품, 이미지, 옵션 데이터 수집</li>
+          <li>수집 데이터를 서비스 DB 스키마에 맞게 Oracle DB에 적재</li>
+          <li>외부 데이터 구조 분석과 데이터 품질 관리 경험</li>
+        </ul>
+        <a class="btn" href="https://github.com/kosa-hieating/hi-eating-crawler" target="_blank" rel="noopener">GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Hyundai-HR</h3>
+        <p class="desc">HR 업무 시스템을 주제로 진행한 팀 프로젝트</p>
+        <div class="meta"><span class="tag">Team Project</span><span class="tag">Git Flow</span><span class="tag">PR</span><span class="tag">HR</span></div>
+        <ul>
+          <li>기능 브랜치, PR, 코드 리뷰 기반 협업 방식 경험</li>
+          <li>업무 시스템에서 데이터 흐름, 권한, 프로세스를 함께 고려하는 중요성 학습</li>
+          <li>팀 단위 코드 관리와 충돌 해결 경험</li>
+        </ul>
+        <a class="btn" href="https://github.com/HDF-3/Hyundai-HR" target="_blank" rel="noopener">GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>HN SmartHome ChatBot 2.0</h3>
+        <p class="desc">HNIX 인턴십 중 수행한 스마트홈 장치 조회·제어 챗봇</p>
+        <div class="meta"><span class="tag">Java 8</span><span class="tag">Spring Boot</span><span class="tag">OAuth2</span><span class="tag">WebClient</span><span class="tag">PostgreSQL</span></div>
+        <ul>
+          <li>OAuth 로그인, Access Token 처리, API 응답 및 대화 이력 DB 저장 구현</li>
+          <li>SmartIoT 미들웨어와 Adapter/Handler 구조 기반 장치 제어 흐름 경험</li>
+          <li>외부 API 연동, 인증 처리, 미들웨어 기반 백엔드 구조 학습</li>
+        </ul>
+        <a class="btn" href="https://github.com/gugukorn/HNIX-Simple-ChatBot" target="_blank" rel="noopener">GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Web Visit History Visualization</h3>
+        <p class="desc">웹 탐색 흐름을 트리 형태로 복원하는 Chrome Extension 졸업작품</p>
+        <div class="meta"><span class="tag">Manifest V3</span><span class="tag">Vanilla JS</span><span class="tag">Chrome Tabs API</span><span class="tag">Storage API</span></div>
+        <ul>
+          <li>탭 생성, URL 변경, 창 이동 이벤트를 추적해 부모·자식 탐색 관계 구성</li>
+          <li>팝업과 검색 결과 패널에서 현재 탐색 흐름을 시각화</li>
+          <li>사용자의 실제 불편을 정의하고 브라우저 API로 해결한 경험</li>
+        </ul>
+        <a class="btn" href="https://github.com/gugukorn/WebVisitHistoryVisualization" target="_blank" rel="noopener">GitHub</a>
+      </article>
+    </section>
+
+    <footer>
+      © 2026 이재우 · <a href="./">메인 포트폴리오로 돌아가기</a>
+    </footer>
+  </main>
+</body>
+</html>
