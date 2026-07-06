@@ -403,9 +403,10 @@
     .card-slider {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: .42rem;
+      column-gap: .42rem;
+      row-gap: 6.8rem;
       overflow: visible;
-      padding-bottom: 6.8rem;
+      padding-bottom: .4rem;
     }
 
     .project-card {
@@ -471,6 +472,26 @@
       background: linear-gradient(135deg, #1a0a0a, #3f1a1a, #6b2020);
     }
 
+    .thumb-mail,
+    .modal-mail {
+      background: linear-gradient(135deg, #09211f, #0d4f48, #00b894);
+    }
+
+    .thumb-eating,
+    .modal-eating {
+      background: linear-gradient(135deg, #13230e, #2f6b21, #9bd95b);
+    }
+
+    .thumb-crawler,
+    .modal-crawler {
+      background: linear-gradient(135deg, #111827, #26456b, #5aa9e6);
+    }
+
+    .thumb-hr,
+    .modal-hr {
+      background: linear-gradient(135deg, #211331, #5c2e91, #b486ff);
+    }
+
     .thumb-certs,
     .modal-certs {
       background: linear-gradient(135deg, #102522, #195447, #00d2a8);
@@ -499,6 +520,13 @@
       font-size: .6rem;
       font-weight: 900;
       letter-spacing: .08em;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+
+    .card-badge:hover {
+      background: #7af0d6;
+      transform: translateY(-1px);
     }
 
     .card-hover-panel {
@@ -553,6 +581,25 @@
       border-color: #fff;
       background: #fff;
       color: #000;
+    }
+
+    .panel-link {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 .7rem;
+      border: 1.5px solid rgba(255, 255, 255, .42);
+      border-radius: 999px;
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    .panel-link:hover {
+      border-color: var(--nf-red);
+      background: rgba(0, 210, 168, .16);
     }
 
     .panel-tags {
@@ -1228,6 +1275,14 @@
         grid-template-columns: 1fr;
       }
 
+      .card-slider {
+        row-gap: 1rem;
+      }
+
+      .card-hover-panel {
+        display: none;
+      }
+
       .award-row {
         align-items: flex-start;
         gap: .85rem;
@@ -1298,7 +1353,7 @@
             <p class="billboard-subtitle">실무 프로젝트로 업무 흐름을 구현해 온 웹·업무시스템 개발자</p>
             <div class="billboard-meta">
               <span class="badge-year">2026</span>
-              <span class="badge-duration">프로젝트 3개</span>
+              <span class="badge-duration">프로젝트 7개</span>
             </div>
             <p class="billboard-desc">
               HNIX에서는 SmartHome/SmartIoT 미들웨어 기반 챗봇을 개발했고,
@@ -1317,8 +1372,8 @@
 
         <section id="projects">
           <div class="top10-divider fade-up">
-            <span class="top10-box">TOP 4</span>
-            <span class="top10-text">오늘의 주요 콘텐츠</span>
+            <span class="top10-box">TOP 7</span>
+            <span class="top10-text">주요 프로젝트</span>
           </div>
 
           <div class="section-row fade-up">
@@ -1327,14 +1382,108 @@
               <article class="project-card" data-modal-target="p1">
                 <div class="card-thumb">
                   <div class="card-thumb-inner">
-                    <div class="thumb-art thumb-chatbot">🤖</div>
+                    <div class="thumb-art thumb-mail">✉</div>
                   </div>
-                  <span class="card-badge">GitHub</span>
-                  <span class="card-label">HN SmartHome ChatBot 2.0</span>
+                  <a class="card-badge" href="https://github.com/jhj2075/kosa-study-mail-project" target="_blank" rel="noopener" aria-label="예약 메일 발송 시스템 GitHub 저장소">GitHub</a>
+                  <span class="card-label">예약 메일 발송 시스템</span>
                 </div>
                 <div class="card-hover-panel">
                   <div class="panel-actions">
                     <button class="panel-btn play" type="button" data-modal-target="p1">▶</button>
+                    <a class="panel-link" href="https://github.com/jhj2075/kosa-study-mail-project" target="_blank" rel="noopener">GitHub 저장소</a>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">Java</span>
+                    <span class="ptag">Spring Boot</span>
+                    <span class="ptag">RabbitMQ</span>
+                  </div>
+                  <div class="panel-title">예약 메일 발송 시스템</div>
+                  <p class="panel-desc">인증, 예약, 스케줄러, 메일 워커 서비스를 분리한 MSA 기반 프로젝트</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p2">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-eating">🥗</div>
+                  </div>
+                  <a class="card-badge" href="https://github.com/kosa-hieating/hi-eating" target="_blank" rel="noopener" aria-label="hi-eating GitHub 저장소">GitHub</a>
+                  <span class="card-label">hi-eating</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p2">▶</button>
+                    <a class="panel-link" href="https://github.com/kosa-hieating/hi-eating" target="_blank" rel="noopener">GitHub 저장소</a>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">Spring Boot</span>
+                    <span class="ptag">Spring AI</span>
+                    <span class="ptag">RabbitMQ</span>
+                    <span class="ptag">MCP</span>
+                  </div>
+                  <div class="panel-title">hi-eating</div>
+                  <p class="panel-desc">AI 추천·메일 생성·메시징까지 다룬 건강식품 커머스 웹 서비스</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p3">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-crawler">↯</div>
+                  </div>
+                  <a class="card-badge" href="https://github.com/kosa-hieating/hi-eating-crawler" target="_blank" rel="noopener" aria-label="hi-eating-crawler GitHub 저장소">GitHub</a>
+                  <span class="card-label">hi-eating-crawler</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p3">▶</button>
+                    <a class="panel-link" href="https://github.com/kosa-hieating/hi-eating-crawler" target="_blank" rel="noopener">GitHub 저장소</a>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">Java</span>
+                    <span class="ptag">Maven</span>
+                    <span class="ptag">Crawler</span>
+                  </div>
+                  <div class="panel-title">hi-eating-crawler</div>
+                  <p class="panel-desc">hi-eating 초기 상품 데이터를 만들기 위한 Java Maven 기반 크롤러</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p4">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-hr">HR</div>
+                  </div>
+                  <a class="card-badge" href="https://github.com/HDF-3/Hyundai-HR" target="_blank" rel="noopener" aria-label="Hyundai-HR GitHub 저장소">GitHub</a>
+                  <span class="card-label">Hyundai-HR</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p4">▶</button>
+                    <a class="panel-link" href="https://github.com/HDF-3/Hyundai-HR" target="_blank" rel="noopener">GitHub 저장소</a>
+                  </div>
+                  <div class="panel-tags">
+                    <span class="ptag">Team Project</span>
+                    <span class="ptag">Git Flow</span>
+                    <span class="ptag">PR</span>
+                  </div>
+                  <div class="panel-title">Hyundai-HR</div>
+                  <p class="panel-desc">HR 업무 시스템을 주제로 진행한 팀 프로젝트</p>
+                </div>
+              </article>
+
+              <article class="project-card" data-modal-target="p5">
+                <div class="card-thumb">
+                  <div class="card-thumb-inner">
+                    <div class="thumb-art thumb-chatbot">🤖</div>
+                  </div>
+                  <a class="card-badge" href="https://github.com/gugukorn/HNIX-Simple-ChatBot" target="_blank" rel="noopener" aria-label="HN SmartHome ChatBot 2.0 GitHub 저장소">GitHub</a>
+                  <span class="card-label">HN SmartHome ChatBot 2.0</span>
+                </div>
+                <div class="card-hover-panel">
+                  <div class="panel-actions">
+                    <button class="panel-btn play" type="button" data-modal-target="p5">▶</button>
+                    <a class="panel-link" href="https://github.com/gugukorn/HNIX-Simple-ChatBot" target="_blank" rel="noopener">GitHub 저장소</a>
                   </div>
                   <div class="panel-tags">
                     <span class="ptag">Java</span>
@@ -1342,32 +1491,34 @@
                     <span class="ptag">SmartIoT</span>
                   </div>
                   <div class="panel-title">HN SmartHome ChatBot 2.0</div>
-                  <p class="panel-desc">이기종 SmartHome 장치를 조회·제어하는 통합 챗봇 프로젝트</p>
+                  <p class="panel-desc">HNIX 인턴십 중 수행한 스마트홈 장치 조회·제어 챗봇</p>
                 </div>
               </article>
 
-              <article class="project-card" data-modal-target="p2">
+              <article class="project-card" data-modal-target="p6">
                 <div class="card-thumb">
                   <div class="card-thumb-inner">
                     <div class="thumb-art thumb-history">📊</div>
                   </div>
+                  <a class="card-badge" href="https://github.com/gugukorn/WebVisitHistoryVisualization" target="_blank" rel="noopener" aria-label="Web Visit History Visualization GitHub 저장소">GitHub</a>
                   <span class="card-label">Web Visit History Visualization</span>
                 </div>
                 <div class="card-hover-panel">
                   <div class="panel-actions">
-                    <button class="panel-btn play" type="button" data-modal-target="p2">▶</button>
+                    <button class="panel-btn play" type="button" data-modal-target="p6">▶</button>
+                    <a class="panel-link" href="https://github.com/gugukorn/WebVisitHistoryVisualization" target="_blank" rel="noopener">GitHub 저장소</a>
                   </div>
                   <div class="panel-tags">
-                    <span class="ptag">JavaScript</span>
-                    <span class="ptag">Visualization</span>
-                    <span class="ptag">History</span>
+                    <span class="ptag">Manifest V3</span>
+                    <span class="ptag">Vanilla JS</span>
+                    <span class="ptag">Chrome API</span>
                   </div>
                   <div class="panel-title">Web Visit History Visualization</div>
-                  <p class="panel-desc">웹 방문 기록을 시각화해 사용 패턴을 한눈에 볼 수 있도록 만든 프로젝트</p>
+                  <p class="panel-desc">웹 탐색 흐름을 트리 형태로 복원하는 Chrome Extension 졸업작품</p>
                 </div>
               </article>
 
-              <article class="project-card" data-modal-target="p3">
+              <article class="project-card" data-modal-target="p7">
                 <div class="card-thumb">
                   <div class="card-thumb-inner">
                     <div class="thumb-art thumb-work">🏢</div>
@@ -1376,7 +1527,7 @@
                 </div>
                 <div class="card-hover-panel">
                   <div class="panel-actions">
-                    <button class="panel-btn play" type="button" data-modal-target="p3">▶</button>
+                    <button class="panel-btn play" type="button" data-modal-target="p7">▶</button>
                   </div>
                   <div class="panel-tags">
                     <span class="ptag">ASP.NET</span>
@@ -1385,27 +1536,6 @@
                   </div>
                   <div class="panel-title">인도법인 전자결재/목표이익 오픈</div>
                   <p class="panel-desc">그룹웨어/e-Accounting/SAP FI 업무와 함께 진행한 실무 오픈 프로젝트</p>
-                </div>
-              </article>
-
-              <article class="project-card" data-modal-target="p4">
-                <div class="card-thumb">
-                  <div class="card-thumb-inner">
-                    <div class="thumb-art thumb-certs">🧩</div>
-                  </div>
-                  <span class="card-label">자격증 · 교육</span>
-                </div>
-                <div class="card-hover-panel">
-                  <div class="panel-actions">
-                    <button class="panel-btn play" type="button" data-modal-target="p4">▶</button>
-                  </div>
-                  <div class="panel-tags">
-                    <span class="ptag">정보처리기사</span>
-                    <span class="ptag">ISTQB</span>
-                    <span class="ptag">KOSA</span>
-                  </div>
-                  <div class="panel-title">자격증 · 교육</div>
-                  <p class="panel-desc">실무 기반을 받쳐주는 자격과 오픈소스·MSA 교육 이력</p>
                 </div>
               </article>
             </div>
@@ -1417,19 +1547,38 @@
             <div class="row-title">기술 스택</div>
           </div>
           <div class="skill-pills fade-up">
-            <span class="skill-pill hot">Java</span>
-            <span class="skill-pill hot">Spring Boot</span>
+            <span class="skill-pill hot">Java 17</span>
+            <span class="skill-pill hot">Spring Boot 3.5</span>
+            <span class="skill-pill hot">Spring Web MVC</span>
+            <span class="skill-pill hot">Spring AI 1.1</span>
+            <span class="skill-pill hot">Ollama</span>
+            <span class="skill-pill hot">MCP Server</span>
+            <span class="skill-pill hot">RabbitMQ / AMQP</span>
             <span class="skill-pill hot">ASP.NET</span>
             <span class="skill-pill hot">Blazor</span>
             <span class="skill-pill hot">SAP</span>
             <span class="skill-pill hot">ABAP</span>
             <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">HTML / CSS</span>
+            <span class="skill-pill">Thymeleaf</span>
+            <span class="skill-pill">Bootstrap 5</span>
+            <span class="skill-pill">Bootstrap Icons</span>
             <span class="skill-pill">Vue.js / Vuetify</span>
+            <span class="skill-pill">Spring Security</span>
             <span class="skill-pill">OAuth2 / JWT</span>
             <span class="skill-pill">MyBatis</span>
+            <span class="skill-pill">Oracle JDBC</span>
+            <span class="skill-pill">Spring Validation</span>
+            <span class="skill-pill">Lombok</span>
+            <span class="skill-pill">Maven / Crawler</span>
             <span class="skill-pill hot">Oracle</span>
             <span class="skill-pill hot">MSSQL</span>
             <span class="skill-pill">PostgreSQL / H2</span>
+            <span class="skill-pill">Gradle</span>
+            <span class="skill-pill">JUnit 5</span>
+            <span class="skill-pill">Spotless</span>
+            <span class="skill-pill">Prettier</span>
+            <span class="skill-pill">GitHub Actions</span>
             <span class="skill-pill">Groupware</span>
             <span class="skill-pill">e-Accounting</span>
             <span class="skill-pill">SAP FI</span>
@@ -1481,33 +1630,31 @@
                 <div class="award-thumb modal-chatbot">📘</div>
                 <div class="award-info">
                   <div class="award-title">정보처리기사</div>
-                  <div class="award-org">국가기술자격</div>
+                  <div class="award-org">한국산업인력공단</div>
                 </div>
                 <div class="award-side">
                   <span class="award-badge">자격증</span>
                   <div class="award-date">보유</div>
                 </div>
               </article>
-
               <article class="award-row">
                 <div class="award-num">02</div>
+                <div class="award-thumb modal-chatbot">📘</div>
+                <div class="award-info">
+                  <div class="award-title">SQLD</div>
+                  <div class="award-org">한국데이터산업진흥원</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">자격증</span>
+                  <div class="award-date">보유</div>
+                </div>
+              </article>
+              <article class="award-row">
+                <div class="award-num">03</div>
                 <div class="award-thumb modal-history">✅</div>
                 <div class="award-info">
                   <div class="award-title">ISTQB CTFL</div>
-                  <div class="award-org">Software Testing Foundation Level</div>
-                </div>
-                <div class="award-side">
-                  <span class="award-badge">자격증</span>
-                  <div class="award-date">보유</div>
-                </div>
-              </article>
-
-              <article class="award-row">
-                <div class="award-num">03</div>
-                <div class="award-thumb modal-work">🛩️</div>
-                <div class="award-info">
-                  <div class="award-title">초경량비행장치조종자</div>
-                  <div class="award-org">초경량비행장치 조종 자격</div>
+                  <div class="award-org">ISTQB</div>
                 </div>
                 <div class="award-side">
                   <span class="award-badge">자격증</span>
@@ -1517,6 +1664,19 @@
 
               <article class="award-row">
                 <div class="award-num">04</div>
+                <div class="award-thumb modal-work">🛩️</div>
+                <div class="award-info">
+                  <div class="award-title">초경량비행장치조종자</div>
+                  <div class="award-org">한국교통안전공단</div>
+                </div>
+                <div class="award-side">
+                  <span class="award-badge">자격증</span>
+                  <div class="award-date">보유</div>
+                </div>
+              </article>
+
+              <article class="award-row">
+                <div class="award-num">05</div>
                 <div class="award-thumb modal-certs">🌐</div>
                 <div class="award-info">
                   <div class="award-title">오픈소스컨트리뷰션아카데미</div>
@@ -1532,11 +1692,11 @@
               </article>
 
               <article class="award-row">
-                <div class="award-num">05</div>
+                <div class="award-num">06</div>
                 <div class="award-thumb modal-certs">🧩</div>
                 <div class="award-info">
-                  <div class="award-title">KOSA MSA기반 fullstack 개발자 양성과정</div>
-                  <div class="award-org">MSA 기반 fullstack 개발자 과정 수강 중</div>
+                  <div class="award-title">현대퓨처넷 채용연계형 MSA FullStack 개발자 교육</div>
+                  <div class="award-org">KOSA</div>
                 </div>
                 <div class="award-side">
                   <span class="award-badge">교육</span>
@@ -1697,9 +1857,13 @@
     }
 
     const moreItems = [
-      { glyph: "🤖", title: "HN SmartHome ChatBot 2.0", sub: "Java / Spring Boot" },
-      { glyph: "📊", title: "Web Visit History Visualization", sub: "JavaScript / Visualization" },
-      { glyph: "🏢", title: "성우하이텍 인도법인 오픈", sub: "ASP.NET / Blazor / SAP" }
+      { glyph: "✉", title: "예약 메일 발송 시스템", sub: "Spring Boot / RabbitMQ" },
+      { glyph: "🥗", title: "hi-eating", sub: "Spring AI / RabbitMQ / MCP" },
+      { glyph: "↯", title: "hi-eating-crawler", sub: "Java / Maven" },
+      { glyph: "HR", title: "Hyundai-HR", sub: "Team Project / Git Flow" },
+      { glyph: "🤖", title: "HN SmartHome ChatBot 2.0", sub: "Spring Boot / SmartIoT" },
+      { glyph: "📊", title: "Web Visit History Visualization", sub: "Chrome Extension" },
+      { glyph: "🏢", title: "성우하이텍 인도법인 오픈", sub: "ASP.NET / SAP FI" }
     ];
 
     const modals = {
@@ -1710,33 +1874,77 @@
         year: "2026",
         type: "소개",
         link: "https://github.com/gugukorn",
-        desc: "HNIX 융합기술연구소 인턴으로 SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0을 개발했고, 성우하이텍 IT개발팀에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무했습니다. 서로 다른 도메인의 실무 환경을 경험하며 기능 구현과 운영 흐름을 함께 익혀 온 점이 강점입니다.",
-        tags: '<div class="modal-tag-row"><span>경력: </span><span>HNIX 인턴, 성우하이텍 매니저</span></div><div class="modal-tag-row"><span>업무: </span><span>SmartHome ChatBot, ASP.NET, Blazor, SAP/ABAP</span></div><div class="modal-tag-row"><span>DB: </span><span>Oracle, MSSQL, PostgreSQL, H2</span></div><div class="modal-tag-row"><span>GitHub: </span><span>github.com/gugukorn</span></div>',
+        desc: "HNIX 융합기술연구소 인턴으로 SmartHome/SmartIoT 미들웨어 기반 HN SmartHome ChatBot 2.0을 개발했고, 성우하이텍 IT개발팀에서는 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 업무를 담당했습니다. 현재는 현대퓨처넷 채용예정자 교육 과정에서 Java, Spring Boot, Oracle, RabbitMQ, MSA 기반 프로젝트를 수행하며 백엔드 역량을 넓히고 있습니다.",
+        tags: '<div class="modal-tag-row"><span>경력: </span><span>HNIX 인턴, 성우하이텍 매니저</span></div><div class="modal-tag-row"><span>프로젝트: </span><span>예약 메일, hi-eating, Hyundai-HR, SmartHome ChatBot</span></div><div class="modal-tag-row"><span>기술: </span><span>Java, Spring Boot, RabbitMQ, ASP.NET, Blazor, SAP/ABAP</span></div><div class="modal-tag-row"><span>DB: </span><span>Oracle, MSSQL, PostgreSQL, H2</span></div>',
         more: moreItems
       },
       p1: {
+        title: "예약 메일 발송 시스템",
+        bg: '<div class="modal-art modal-mail">✉</div>',
+        match: "MSA 프로젝트",
+        year: "2026",
+        type: "프로젝트",
+        link: "https://github.com/jhj2075/kosa-study-mail-project",
+        desc: "인증, 예약, 스케줄러, 메일 워커 서비스를 분리한 MSA 기반 프로젝트입니다. 예약 시간이 되면 스케줄러가 RabbitMQ로 이벤트를 발행하고, 메일 워커가 메시지를 소비해 메일을 발송하는 비동기 처리 흐름을 구현했습니다. 서비스 책임 분리와 장애 영향을 줄이는 구조를 학습했습니다.",
+        tags: '<div class="modal-tag-row"><span>기술: </span><span>Java, Spring Boot, Oracle, MyBatis, RabbitMQ, Security, JWT</span></div><div class="modal-tag-row"><span>구조: </span><span>인증 서비스, 예약 서비스, 스케줄러, 메일 워커</span></div><div class="modal-tag-row"><span>핵심: </span><span>이벤트 발행, 메시지 소비, 비동기 메일 발송</span></div><div class="modal-tag-row"><span>저장소: </span><span>jhj2075/kosa-study-mail-project</span></div>',
+        more: moreItems
+      },
+      p2: {
+        title: "hi-eating",
+        bg: '<div class="modal-art modal-eating">🥗</div>',
+        match: "팀 프로젝트",
+        year: "2026",
+        type: "프로젝트",
+        link: "https://github.com/kosa-hieating/hi-eating",
+        desc: "건강식품 및 식단 추천을 주제로 한 Spring Boot 3.5 기반 커머스 웹 서비스입니다. Java 17, Spring AI 1.1, Ollama Chat/Embedding, MCP Server, RabbitMQ/AMQP, Oracle, MyBatis, Thymeleaf, Bootstrap까지 함께 사용했고, AI 기반 타깃 선정·추천·메일 생성 흐름과 상품·주문·리뷰·프로모션 데이터를 다뤘습니다.",
+        tags: '<div class="modal-tag-row"><span>Backend: </span><span>Java 17, Spring Boot 3.5, Spring Web MVC, Spring Security, Validation</span></div><div class="modal-tag-row"><span>AI/MCP: </span><span>Spring AI 1.1, Ollama ChatClient, EmbeddingModel, MCP Server WebMVC</span></div><div class="modal-tag-row"><span>Data/Event: </span><span>Oracle JDBC, MyBatis, RabbitMQ/AMQP</span></div><div class="modal-tag-row"><span>View/Tooling: </span><span>Thymeleaf, Bootstrap 5, Bootstrap Icons, Gradle, Spotless, Prettier, JUnit 5</span></div><div class="modal-tag-row"><span>저장소: </span><span>kosa-hieating/hi-eating</span></div>',
+        more: moreItems
+      },
+      p3: {
+        title: "hi-eating-crawler",
+        bg: '<div class="modal-art modal-crawler">↯</div>',
+        match: "데이터 수집",
+        year: "2026",
+        type: "프로젝트",
+        link: "https://github.com/kosa-hieating/hi-eating-crawler",
+        desc: "hi-eating 초기 상품 데이터를 만들기 위한 Java Maven 기반 크롤러입니다. 외부 상품 목록 API를 호출해 카테고리, 상품, 이미지, 옵션 데이터를 수집하고, 서비스 DB 스키마에 맞게 Oracle DB에 적재했습니다. 외부 데이터 구조 분석과 데이터 품질 관리 경험을 쌓았습니다.",
+        tags: '<div class="modal-tag-row"><span>기술: </span><span>Java, Maven, Oracle, Crawler</span></div><div class="modal-tag-row"><span>데이터: </span><span>카테고리, 상품, 이미지, 옵션</span></div><div class="modal-tag-row"><span>핵심: </span><span>외부 API 호출, 스키마 매핑, Oracle DB 적재</span></div><div class="modal-tag-row"><span>저장소: </span><span>kosa-hieating/hi-eating-crawler</span></div>',
+        more: moreItems
+      },
+      p4: {
+        title: "Hyundai-HR",
+        bg: '<div class="modal-art modal-hr">HR</div>',
+        match: "팀 프로젝트",
+        year: "2026",
+        type: "프로젝트",
+        link: "https://github.com/HDF-3/Hyundai-HR",
+        desc: "HR 업무 시스템을 주제로 진행한 팀 프로젝트입니다. 기능 브랜치, PR, 코드 리뷰 기반 협업 방식을 경험했고, 업무 시스템에서 데이터 흐름, 권한, 프로세스를 함께 고려하는 중요성을 학습했습니다. 팀 단위 코드 관리와 충돌 해결 경험도 함께 쌓았습니다.",
+        tags: '<div class="modal-tag-row"><span>유형: </span><span>Team Project, HR 업무 시스템</span></div><div class="modal-tag-row"><span>협업: </span><span>Git Flow, PR, 코드 리뷰, 충돌 해결</span></div><div class="modal-tag-row"><span>핵심: </span><span>데이터 흐름, 권한, 업무 프로세스</span></div><div class="modal-tag-row"><span>저장소: </span><span>HDF-3/Hyundai-HR</span></div>',
+        more: moreItems
+      },
+      p5: {
         title: "HN SmartHome ChatBot 2.0",
         bg: '<div class="modal-art modal-chatbot">🤖</div>',
         match: "인턴 3차 프로젝트",
         year: "2023",
         type: "프로젝트",
         link: "https://github.com/gugukorn/HNIX-Simple-ChatBot",
-        desc: "HNIX 장기현장실습 중 진행한 프로젝트입니다. 사용자가 SmartHome API나 장치별 제어 프로토콜을 직접 알지 못해도 챗봇으로 이기종 SmartHome 장치를 조회하고 제어할 수 있도록 만들었습니다. OAuth 로그인, Access Token 처리, API 응답 DB 저장 구조, Adapter/Handler 구조, 자연어 의도 해석, UI/UX 개선을 함께 다뤘습니다.",
+        desc: "HNIX 장기현장실습 중 진행한 프로젝트입니다. 사용자가 SmartHome API나 장치별 제어 프로토콜을 직접 알지 못해도 챗봇으로 이기종 SmartHome 장치를 조회하고 제어할 수 있도록 만들었습니다. OAuth 로그인, Access Token 처리, API 응답 및 대화 이력 DB 저장, SmartIoT 미들웨어와 Adapter/Handler 구조 기반 장치 제어 흐름을 구현했습니다.",
         tags: '<div class="modal-tag-row"><span>회사: </span><span>HNIX 융합기술연구소</span></div><div class="modal-tag-row"><span>기간: </span><span>2023.08 - 2023.12</span></div><div class="modal-tag-row"><span>기술: </span><span>Java 8, Spring Boot 2.7, WebClient, MyBatis, PostgreSQL, H2, Vue/Vuetify</span></div><div class="modal-tag-row"><span>핵심: </span><span>SmartHome/SmartIoT 미들웨어, OAuth/JWT, Adapter/Handler</span></div>',
         more: moreItems
       },
-      p2: {
+      p6: {
         title: "Web Visit History Visualization",
         bg: '<div class="modal-art modal-history">📊</div>',
-        match: "GitHub 공개",
+        match: "졸업작품",
         year: "2026",
         type: "프로젝트",
         link: "https://github.com/gugukorn/WebVisitHistoryVisualization",
-        desc: "웹 방문 기록 데이터를 보기 쉽게 시각화하는 프로젝트입니다. 방문 기록을 단순 목록이 아니라 패턴을 파악할 수 있는 형태로 정리해 사용자의 웹 이용 흐름을 더 직관적으로 확인할 수 있게 했습니다.",
-        tags: '<div class="modal-tag-row"><span>저장소: </span><span>github.com/gugukorn/WebVisitHistoryVisualization</span></div><div class="modal-tag-row"><span>유형: </span><span>방문 기록 시각화</span></div><div class="modal-tag-row"><span>핵심: </span><span>데이터 가공, 시각화 UI, 사용자 패턴 분석</span></div>',
+        desc: "웹 탐색 흐름을 트리 형태로 복원하는 Chrome Extension 졸업작품입니다. 탭 생성, URL 변경, 창 이동 이벤트를 추적해 부모·자식 탐색 관계를 구성하고, 팝업과 검색 결과 패널에서 현재 탐색 흐름을 시각화했습니다. 사용자의 실제 불편을 정의하고 브라우저 API로 해결한 경험입니다.",
+        tags: '<div class="modal-tag-row"><span>기술: </span><span>Manifest V3, Vanilla JS, Chrome Tabs API, Storage API</span></div><div class="modal-tag-row"><span>유형: </span><span>방문 기록 시각화, Chrome Extension</span></div><div class="modal-tag-row"><span>핵심: </span><span>탭 이벤트 추적, 탐색 관계 구성, 시각화 UI</span></div><div class="modal-tag-row"><span>저장소: </span><span>gugukorn/WebVisitHistoryVisualization</span></div>',
         more: moreItems
       },
-      p3: {
+      p7: {
         title: "성우하이텍 인도법인 전자결재/목표이익 오픈",
         bg: '<div class="modal-art modal-work">🏢</div>',
         match: "실무 오픈",
@@ -1745,17 +1953,6 @@
         link: "",
         desc: "성우하이텍 IT개발팀에서 ASP.NET, Blazor, SAP, ABAP 기반 그룹웨어/e-Accounting/SAP FI 개발자이자 매니저로 근무하며 진행한 인도법인 전자결재/목표이익 오픈 프로젝트입니다. 법인 업무 흐름에 맞춰 결재 프로세스와 목표이익 관리 기능이 실제 운영 환경에서 사용할 수 있도록 정리하고 오픈 대응을 수행했습니다.",
         tags: '<div class="modal-tag-row"><span>소속: </span><span>성우하이텍 IT개발팀</span></div><div class="modal-tag-row"><span>기간: </span><span>2024.09 - 2026.04</span></div><div class="modal-tag-row"><span>기술: </span><span>ASP.NET, Blazor, SAP, ABAP, Oracle, MSSQL</span></div><div class="modal-tag-row"><span>업무: </span><span>그룹웨어, e-Accounting, SAP FI, 인도법인 오픈 대응</span></div>',
-        more: moreItems
-      },
-      p4: {
-        title: "자격증 · 교육",
-        bg: '<div class="modal-art modal-certs">🧩</div>',
-        match: "학습 이력",
-        year: "2026",
-        type: "자격증",
-        link: "https://chromium.googlesource.com/chromium/src/+/HEAD/AUTHORS",
-        desc: "정보처리기사, ISTQB CTFL, 초경량비행장치조종자를 보유하고 있습니다. 오픈소스컨트리뷰션아카데미에서 Git 활용 및 Chromium 과정을 수료했고, 현재 KOSA MSA기반 fullstack 개발자 양성과정을 수강 중입니다.",
-        tags: '<div class="modal-tag-row"><span>자격증: </span><span>정보처리기사, ISTQB CTFL, 초경량비행장치조종자</span></div><div class="modal-tag-row"><span>교육: </span><span>오픈소스컨트리뷰션아카데미, KOSA MSA fullstack</span></div><div class="modal-tag-row"><span>기여 표기: </span><span>Jaewoo Lee &lt;ljw5953@gmail.com&gt;</span></div>',
         more: moreItems
       }
     };
@@ -1774,6 +1971,7 @@
 
       modalLink.href = data.link || "#";
       modalLink.style.display = data.link ? "inline-flex" : "none";
+      modalLink.textContent = data.link && data.link.includes("github.com") ? "▶ GitHub 보기" : "▶ 자세히 보기";
 
       document.getElementById("modalMoreGrid").innerHTML = data.more.map((item) => (
         '<div class="modal-more-card"><div class="modal-more-thumb">' + item.glyph
@@ -1792,6 +1990,10 @@
 
     document.querySelectorAll("[data-modal-target]").forEach((element) => {
       element.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          event.stopPropagation();
+          return;
+        }
         if (element.classList.contains("panel-btn")) {
           event.stopPropagation();
         }
