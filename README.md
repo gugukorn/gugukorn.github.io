@@ -48,17 +48,6 @@ HTML, CSS, JavaScript로 작성한 정적 사이트입니다.
 
 글꼴은 Pretendard 1.3.9 CDN을 사용하며, 로드되지 않으면 시스템 글꼴로 표시합니다. 별도의 프레임워크나 빌드 도구는 사용하지 않습니다.
 
-## 참고한 개발자 사이트
-
-직접 사이트를 확인한 뒤 정보 구성 원칙을 참고했습니다. 코드·이미지·고유 디자인은 복제하지 않았습니다.
-
-| 레퍼런스                                       | 참고한 부분                                          |
-| ---------------------------------------------- | ---------------------------------------------------- |
-| [Brittany Chiang](https://brittanychiang.com/) | 역할·기여·기술 순으로 읽히는 경력과 프로젝트 정보    |
-| [Anthony Fu](https://antfu.me/)                | 현재 개발 분야와 실제 작업 링크가 바로 드러나는 소개 |
-| [Tania Rascia](https://www.taniarascia.com/)   | 밝은 바탕, 타이포그래피, 구분선 중심의 편집 방식     |
-| [Lee Robinson](https://leerob.com/)            | 간결한 소개와 필요한 만큼 더 읽는 정보 깊이          |
-
 ## 콘텐츠 수정
 
 - 이력과 프로젝트 문구는 `index.html`의 해당 섹션에서 수정합니다.
@@ -74,7 +63,3 @@ HTML, CSS, JavaScript로 작성한 정적 사이트입니다.
 - GitHub Pages: **Deploy from a branch → codex/recruiter-portfolio → / (root)**
 
 `codex/recruiter-portfolio` 브랜치에 push하면 GitHub Pages가 사이트를 빌드하고 배포합니다. 진행 상태는 저장소의 Actions에서 확인할 수 있습니다.
-
-## AI 활용 기록
-
-사이트 구현 과정에서 Codex를 사용했습니다. 이력과 프로젝트 설명은 본인 이력 및 저장소 기록을 바탕으로 작성했습니다.
