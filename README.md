@@ -44,9 +44,11 @@ HTML, CSS, JavaScript로 작성한 정적 사이트입니다.
 | `script.js`                | 메뉴 위치 표시, 상세 펼침, 이메일 복사, 인쇄 처리        |
 | `assets/hwalro-system.svg` | 실제 실행 경계를 요약한 서비스·엔진 구조도               |
 | `assets/favicon.svg`       | 개인 사이트 아이콘                                       |
-| `docs/verification.md`     | 콘텐츠 출처와 검증 범위                                  |
+| `assets/icons/`            | 기술 아이콘 SVG와 라이선스                               |
 
 글꼴은 Pretendard 1.3.9 CDN을 사용하며, 로드되지 않으면 시스템 글꼴로 표시합니다. 별도의 프레임워크나 빌드 도구는 사용하지 않습니다.
+
+기술 아이콘은 로컬 SVG로 제공하며 [Devicon](https://github.com/devicons/devicon)의 MIT 라이선스 아이콘과 직접 작성한 범용 아이콘을 사용합니다. 출처와 라이선스는 `assets/icons/NOTICE.md`, `assets/icons/LICENSE.devicon.txt`에 있습니다. `docs/`는 로컬 작업 문서용으로 Git 추적에서 제외합니다.
 
 ## 콘텐츠 수정
 

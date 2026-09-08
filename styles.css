@@ -456,12 +456,39 @@ h2 {
   padding: 0;
 }
 .tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding: 3px 8px;
   background: var(--green-light);
   color: #45533e;
   font-size: 10px;
   line-height: 1.65;
   border-radius: 2px;
+}
+.tech-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+.tags .tech-icon {
+  width: 13px;
+  height: 13px;
+}
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 0;
+  margin: 0;
+}
+.tech-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 .project-links {
   display: flex;
@@ -746,9 +773,15 @@ summary:hover .detail-toggle {
   color: var(--muted);
   line-height: 2;
 }
-.additional-tools strong {
-  display: inline-block;
-  min-width: 160px;
+.tool-group {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 14px;
+  padding-top: 16px;
+}
+.tool-group h4 {
+  margin: 0;
+  font-size: inherit;
   font-weight: 550;
   color: var(--ink);
 }
@@ -1371,8 +1404,9 @@ summary:hover .detail-toggle {
   .toolkit-grid article > p:not(.toolkit-tools) br {
     display: none;
   }
-  .additional-tools strong {
-    display: block;
+  .tool-group {
+    grid-template-columns: 1fr;
+    gap: 8px;
     margin-top: 9px;
   }
   .credential-list > div {
@@ -1620,9 +1654,16 @@ summary:hover .detail-toggle {
     display: initial;
   }
   .toolkit-grid .toolkit-tools {
-    display: block;
+    display: flex;
     margin-top: 6px;
     font-size: 9pt;
+  }
+  .tech-list {
+    gap: 5px 12px;
+  }
+  .tech-icon {
+    width: 12px;
+    height: 12px;
   }
   .additional-tools {
     font-size: 9pt;
@@ -1631,9 +1672,9 @@ summary:hover .detail-toggle {
   .additional-tools > div {
     padding-bottom: 12px;
   }
-  .additional-tools strong {
-    display: inline;
-    min-width: 0;
+  .tool-group {
+    grid-template-columns: 140px minmax(0, 1fr);
+    padding-top: 8px;
   }
   .background-grid {
     columns: 2;
