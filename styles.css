@@ -192,6 +192,18 @@ nav a[aria-current="location"] {
   padding: 42px 0 56px;
   align-items: center;
 }
+.hero-introduction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.profile-photo {
+  flex: 0 0 auto;
+  width: 170px;
+  height: auto;
+  border-radius: 3px;
+}
 h1 {
   font-size: clamp(38px, 4.1vw, 60px);
   font-weight: 720;
@@ -499,6 +511,44 @@ h2 {
 }
 .project-links .text-link {
   font-size: 12px;
+}
+.project-materials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 14px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.project-materials .text-link {
+  font-size: 12px;
+}
+.material-meta,
+.material-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+.material-chapter {
+  flex-basis: 100%;
+  padding-block: 7px;
+  font-size: 12px;
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+}
+.archive-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 14px;
+}
+.archive-links .archive-source {
+  margin: 0;
+  padding-block: 5px;
+}
+.archive-links .material-source {
+  font-family: inherit;
 }
 .private-note {
   color: var(--muted);
@@ -966,6 +1016,12 @@ summary:hover .detail-toggle {
   }
 }
 @media (max-width: 1100px) {
+  .profile-photo {
+    width: 130px;
+  }
+  .hero-introduction {
+    gap: 20px;
+  }
   .page-shell,
   .header-inner {
     width: calc(100% - 64px);
@@ -1021,6 +1077,9 @@ summary:hover .detail-toggle {
   }
 }
 @media (max-width: 800px) {
+  .profile-photo {
+    width: 140px;
+  }
   html {
     scroll-padding-top: 96px;
   }
@@ -1183,6 +1242,22 @@ summary:hover .detail-toggle {
   }
 }
 @media (max-width: 520px) {
+  .profile-photo {
+    width: 88px;
+  }
+  .hero-introduction {
+    gap: 16px;
+  }
+  .hero-introduction h1 {
+    font-size: clamp(24px, 6.8vw, 34px);
+  }
+  .archive-links {
+    grid-column: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 0 10px;
+  }
   html {
     scroll-padding-top: 115px;
   }
@@ -1440,6 +1515,16 @@ summary:hover .detail-toggle {
   }
 }
 @media print {
+  .profile-photo {
+    width: 70px;
+  }
+  .hero-introduction {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .hero-introduction h1 {
+    font-size: 25pt;
+  }
   @page {
     size: A4;
     margin: 14mm;

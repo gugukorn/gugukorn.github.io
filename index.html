@@ -49,7 +49,17 @@
         </div>
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1 id="intro-title">이재우<br /><span>백엔드 개발자</span></h1>
+            <div class="hero-introduction">
+              <h1 id="intro-title">이재우<br /><span>백엔드 개발자</span></h1>
+              <img
+                class="profile-photo"
+                src="assets/jaewoo-lee.png"
+                width="1123"
+                height="1401"
+                alt="이재우 프로필 사진"
+                fetchpriority="high"
+              />
+            </div>
             <p class="hero-description">
               Java·Spring Boot 기반 백엔드 프로젝트와<br
                 class="desktop-break"
@@ -189,6 +199,27 @@
                 ><span class="sr-only"> (새 탭)</span></a
               ><a class="text-link" href="#jupedsim"
                 >JuPedSim 수정 내용 <span aria-hidden="true">↓</span></a
+              >
+            </div>
+            <div class="project-materials" aria-label="Hwalro 발표자료">
+              <a
+                class="text-link"
+                href="assets/presentations/hwalro.pdf"
+                type="application/pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >팀 발표자료 PDF <span aria-hidden="true">↗</span
+                ><span class="sr-only"> (새 탭)</span></a
+              >
+              <span class="material-meta">91페이지 · 14.6MB</span>
+              <a
+                class="material-chapter"
+                href="assets/presentations/hwalro.pdf#page=62"
+                target="_blank"
+                rel="noopener noreferrer"
+                >담당 내용: 시뮬레이션 엔진·배치 · 62–69페이지
+                <span aria-hidden="true">↗</span
+                ><span class="sr-only"> (새 탭)</span></a
               >
             </div>
           </div>
@@ -458,14 +489,34 @@
               </summary>
               <div class="archive-detail">
                 <p>
-                  건강식품 및 식단 추천을 주제로 한 팀 프로젝트입니다.
-                  상품·주문·리뷰·프로모션 데이터를 다루고, AI 기반 타깃
-                  선정·추천·메일 생성 흐름과 메시징을 연결했습니다.
+                  상품 조회·구매·리뷰, AI 상품 추천과 핫딜 이메일을 제공하는
+                  건강식품 커머스입니다.
                 </p>
-                <p>
-                  Spring AI의 Ollama Chat·Embedding, MCP Server WebMVC와
-                  RabbitMQ/AMQP를 활용했습니다.
-                </p>
+                <dl class="project-facts">
+                  <div>
+                    <dt>담당 기능</dt>
+                    <dd>
+                      DB 스키마, Spring Security 인증·권한, WebSocket 상담 채팅,
+                      MCP 서버, 상품 크롤러
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>구현 내용</dt>
+                    <dd>
+                      관리자 상태에 따른 상담 배정, 최근 50개 메시지와 커서 기반
+                      이전 대화 조회, 서비스 기능을 MCP 도구로 제공
+                    </dd>
+                  </div>
+                </dl>
+                <p class="material-note">팀 발표자료 · 45페이지 · 13.0MB</p>
+                <a
+                  class="material-chapter"
+                  href="assets/presentations/hi-eating.pdf#page=14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >담당 기능 14–22페이지 <span aria-hidden="true">↗</span
+                  ><span class="sr-only"> (새 탭)</span></a
+                >
                 <ul class="tags" aria-label="사용 기술">
                   <li>
                     <img
@@ -530,14 +581,24 @@
                 </ul>
               </div>
             </details>
-            <a
-              class="archive-source"
-              href="https://github.com/kosa-hieating/hi-eating"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="hi-eating GitHub (새 탭)"
-              >GitHub ↗</a
-            >
+            <div class="archive-links">
+              <a
+                class="archive-source"
+                href="https://github.com/kosa-hieating/hi-eating"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="hi-eating GitHub (새 탭)"
+                >GitHub ↗</a
+              ><a
+                class="archive-source material-source"
+                href="assets/presentations/hi-eating.pdf"
+                type="application/pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="hi-eating 팀 발표자료 PDF (새 탭)"
+                >발표자료 PDF ↗</a
+              >
+            </div>
           </div>
           <div class="archive-row" id="scheduled-mail">
             <span class="archive-number">06</span>
@@ -693,20 +754,64 @@
               </summary>
               <div class="archive-detail">
                 <p>
-                  HR 업무 시스템을 주제로 진행한 팀 프로젝트입니다. 기능
-                  브랜치·PR·코드 리뷰 기반으로 협업하고, 팀 단위 코드 관리와
-                  충돌 해결을 경험했습니다.
+                  직원 정보·근태·휴가·급여를 Oracle DB로 관리하는 Java 인사관리
+                  시스템입니다.
                 </p>
-                <ul class="tags" aria-label="협업 방식">
+                <dl class="project-facts">
+                  <div>
+                    <dt>담당 기능</dt>
+                    <dd>
+                      출퇴근 기록, 유연근무 시간 등록, 근태 정정 신청, 휴가·급여
+                      연계
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>구현 내용</dt>
+                    <dd>
+                      유연근무 시간을 반영한 야근 시간·일수 계산과 휴가 승인
+                      결과의 근태 반영
+                    </dd>
+                  </div>
+                </dl>
+                <p class="material-note">팀 발표자료 · 52페이지 · 2.2MB</p>
+                <a
+                  class="material-chapter"
+                  href="assets/presentations/hyundai-hr.pdf#page=15"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >근태 기능 15–27페이지 <span aria-hidden="true">↗</span
+                  ><span class="sr-only"> (새 탭)</span></a
+                >
+                <ul class="tags" aria-label="사용 기술">
                   <li>
                     <img
                       class="tech-icon"
-                      src="assets/icons/users.svg"
+                      src="assets/icons/java.svg"
                       width="16"
                       height="16"
                       alt=""
                       aria-hidden="true"
-                    />Team Project
+                    />Java
+                  </li>
+                  <li>
+                    <img
+                      class="tech-icon"
+                      src="assets/icons/database.svg"
+                      width="16"
+                      height="16"
+                      alt=""
+                      aria-hidden="true"
+                    />JDBC
+                  </li>
+                  <li>
+                    <img
+                      class="tech-icon"
+                      src="assets/icons/oracle.svg"
+                      width="16"
+                      height="16"
+                      alt=""
+                      aria-hidden="true"
+                    />Oracle
                   </li>
                   <li>
                     <img
@@ -716,39 +821,29 @@
                       height="16"
                       alt=""
                       aria-hidden="true"
-                    />Git Flow
-                  </li>
-                  <li>
-                    <img
-                      class="tech-icon"
-                      src="assets/icons/branch.svg"
-                      width="16"
-                      height="16"
-                      alt=""
-                      aria-hidden="true"
-                    />Pull Request
-                  </li>
-                  <li>
-                    <img
-                      class="tech-icon"
-                      src="assets/icons/check.svg"
-                      width="16"
-                      height="16"
-                      alt=""
-                      aria-hidden="true"
-                    />Code Review
+                    />Git / GitHub
                   </li>
                 </ul>
               </div>
             </details>
-            <a
-              class="archive-source"
-              href="https://github.com/HDF-3/Hyundai-HR"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Hyundai-HR GitHub (새 탭)"
-              >GitHub ↗</a
-            >
+            <div class="archive-links">
+              <a
+                class="archive-source"
+                href="https://github.com/HDF-3/Hyundai-HR"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hyundai-HR GitHub (새 탭)"
+                >GitHub ↗</a
+              ><a
+                class="archive-source material-source"
+                href="assets/presentations/hyundai-hr.pdf"
+                type="application/pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hyundai-HR 팀 발표자료 PDF (새 탭)"
+                >발표자료 PDF ↗</a
+              >
+            </div>
           </div>
           <div class="archive-row" id="web-history">
             <span class="archive-number">09</span>
